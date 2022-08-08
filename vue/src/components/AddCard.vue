@@ -10,6 +10,10 @@
           <textarea name="question" cols="30" rows="10" v-model="card.question"></textarea>
       </div>
       <div>
+        <label for="tags">Tags: </label>
+        <input name="tags" type="text" v-model="card.tags">
+      </div>
+      <div>
           <label for="answer">Card Answer: </label> 
           <textarea name="answer" cols="30" rows="10" v-model="card.answer"></textarea>
       </div>
@@ -20,25 +24,31 @@
 </template>
 
 <script>
+
+import CardService from '../services/CardService.js';
+
 export default {
   name: "add-card",
   props: [],
   data() {
     return {
       card: {
-        card_id: null,
+        cardId: null,
         subject: "",
         question: "",
-        tags: [],
+        tags: "",
         answer: "",
-        favorited: false,
-        user_id: this.$store.state.user.id,
+        userId: this.$store.state.user.id,
       },
     };
   },
   methods: {
       saveCard() {
-
+        CardService.create(this.card).then((response) => {
+          if(response.status == 200){
+            window.alert("It worked!")
+          }
+        });
       },
       cancelForm() {
           this.$router.push({name: 'home'});

@@ -5,7 +5,7 @@ export default {
         return axios.post('/cards', card);
     },
 
-    listCards() {
-        return axios.get(`/cards`);
+    listCards(id) {
+        return axios.get(`/cards/${id}`);
     }
 }

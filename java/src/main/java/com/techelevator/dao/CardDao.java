@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface CardDao {
 
-    List<Card> getCards();
+    List<Card> getCards(int userId);
 
     Card getCardById(int cardId);
+
+    int createCard(Card card);
 }

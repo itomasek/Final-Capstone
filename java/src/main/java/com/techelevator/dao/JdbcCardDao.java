@@ -17,10 +17,10 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
-    public List<Card> getCards() {
+    public List<Card> getCards(int userId) {
         List<Card> cards = new ArrayList<>();
-        String getCardSql = "SELECT * FROM card";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(getCardSql);
+        String getCardSql = "SELECT * FROM card WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(getCardSql, userId);
         while (results.next()) {
             Card card = mapRowToCard(results);
             cards.add(card);
@@ -33,12 +33,19 @@ public class JdbcCardDao implements CardDao{
         return null;
     }
 
+    @Override
+    public int createCard(Card card) {
+        String sql = "INSERT INTO card (subject, question, tags, answer, user_id) VALUES (?, ?, ?, ?, ?) RETURNING user_id";
+        int userId = jdbcTemplate.queryForObject(sql, Integer.class, card.getSubject(), card.getQuestion(), card.getTags(), card.getAnswer(), card.getUserId());
+        return userId;
+    }
+
     private Card mapRowToCard(SqlRowSet rowSet) {
         Card card = new Card();
         card.setCardId(rowSet.getInt("card_id"));
         card.setSubject(rowSet.getString("subject"));
         card.setQuestion(rowSet.getString("question"));
-        card.setTags(rowSet.getString("tags").split(", "));
+        card.setTags(rowSet.getString("tags"));
         card.setAnswer(rowSet.getString("answer"));
         card.setUserId(rowSet.getInt("user_id"));
         return card;
