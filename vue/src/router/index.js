@@ -5,6 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import NewCard from '../views/NewCard.vue'
+import AllCards from '../views/AllCards.vue'
 
 Vue.use(Router)
 
@@ -51,6 +53,22 @@ const router = new Router({
       component: Register,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/new-card",
+      name: "new-card",
+      component: NewCard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/cards/:user_id",
+      name: "my-cards",
+      component: AllCards,
+      meta: {
+        requiresAuth: true
       }
     }
   ]
