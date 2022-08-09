@@ -1,6 +1,6 @@
 <template>
   <div>
-      <h1>This is all of your cards</h1>
+      
       <card-list/>
   </div>
 </template>

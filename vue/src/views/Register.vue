@@ -32,10 +32,12 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
+      <h5>Already Have An Account?</h5>
+      <router-link :to="{ name: 'login' }">Sign In!</router-link>
     </form>
   </div>
 </template>
@@ -90,4 +92,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+  .form-register {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: space-evenly;
+    margin-left: 500px;
+    margin-right: 500px;
+  }
+</style>

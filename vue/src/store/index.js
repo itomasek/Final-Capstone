@@ -12,14 +12,42 @@ Vue.use(Vuex)
 const currentToken = localStorage.getItem('token')
 const currentUser = JSON.parse(localStorage.getItem('user'));
 
-if(currentToken != null) {
+if (currentToken != null) {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
 
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    exampleCards: [
+      {
+        cardId: 1,
+        subject: 'History',
+        question: 'List in order the first five presidents of the USA.',
+        tags: 'Presidents, History, Government',
+        answer: 'Washington, Adams, Jefferson, Madison, Monroe',
+        username: 'ExampleUser'
+
+      },
+      {
+        cardId: 2,
+        subject: 'Language',
+        question: 'How do you say "Hello" in Spanish, French, and German',
+        tags: 'Languages, Culture',
+        answer: 'Hola! Bonjour! Guten Tag!',
+        username: 'ExampleUser'
+      },
+      {
+        cardId: 3,
+        subject: 'Science',
+        question: 'What are the elements that comprise water? BONUS: give the molecular structure!',
+        tags: 'Chemistry, Molecules, Science',
+        answer: 'Hydrogen and Oxygen: H2O',
+        username: 'ExampleUser'
+
+      },
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -29,7 +57,7 @@ export default new Vuex.Store({
     },
     SET_USER(state, user) {
       state.user = user;
-      localStorage.setItem('user',JSON.stringify(user));
+      localStorage.setItem('user', JSON.stringify(user));
     },
     LOGOUT(state) {
       localStorage.removeItem('token');
