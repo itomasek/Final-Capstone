@@ -71,12 +71,10 @@ export default {
   background-color: burlywood;
 }
 
-h1 {
-  text-decoration: underline;
-}
 
 .subject {
   grid-area: subject;
+  text-decoration: underline;
 }
 
 .tags {

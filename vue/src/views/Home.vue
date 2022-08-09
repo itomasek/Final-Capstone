@@ -2,8 +2,8 @@
   <div class="home">
     <div class="main-container">
       <h1>Welcome To</h1>
-      <h1>FlashCard Study App</h1>
-      <h3>Some Sort Of Catchphrase!</h3>
+      <h1>F L A S H D EX !</h1>
+      <h3>Light Your Brain On Fire!!</h3>
       <p>Check Out These Example Cards, The Answers Can Be Viewed By Pressing 'Flip'</p>
     </div>
     <div class="example-container">

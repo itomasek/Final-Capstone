@@ -1,7 +1,7 @@
 <template>
   
   <div class="container">
-    <div>logo place holder</div>
+    <img class="hero-img" src="../../assets/placeholderLogo.png" alt="placeholder-logo">
     <div>
       <router-link v-bind:to="{ name: 'home' }"
         ><button>Home</button></router-link
@@ -32,11 +32,15 @@ export default {
 .container {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   flex-wrap: nowrap;
   background: blanchedalmond;
   padding: 5px;
   margin: 5px;
-  
-  
+}
+
+.hero-img {
+  height: 100px;
+  width: 100px;
 }
 </style>
