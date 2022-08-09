@@ -1,15 +1,19 @@
 <template>
-  <div>
-      <h1 v-for="card in cards" v-bind:key="card.cardId">{{card.question}}</h1>
+  <div class="cards-container">
+      <card v-for="card in cards" v-bind:key="card.cardId" v-bind:card="card"/>
   </div>
 </template>
 
 <script>
 
 import CardService from '../services/CardService.js';
+import Card from '../components/Card.vue';
 
 export default {
   name: "card-list",
+  components: {
+    Card
+  },
   data() {
     return {
       cards: [],
@@ -20,8 +24,13 @@ export default {
           this.cards = response.data;
       })
   }
+
 };
 </script>
 
 <style>
+.cards-container{
+  display: flex;
+  justify-content: space-around;
+}
 </style>
