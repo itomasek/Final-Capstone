@@ -1,10 +1,9 @@
 <template>
   <div class="home">
     <div class="main-container">
-      <h1>Welcome To</h1>
-      <h1>F L A S H D EX !</h1>
-      <h3>Light Your Brain On Fire!!</h3>
-      <p>Check Out These Example Cards, The Answers Can Be Viewed By Pressing 'Flip'</p>
+      <h1>Welcome to Flashdex!</h1>
+      <h3>Improving your brain one flashcard at a time!</h3>
+      <p>Check out these example cards! The answers can be viewed by pressing 'Flip'.</p>
     </div>
     <div class="example-container">
       <card v-for="card in this.$store.state.exampleCards"
@@ -24,13 +23,20 @@ export default {
 <style>
 .home {
   margin-left: 250px;
-  background-color: cadetblue;
+  background-color: #F6FBFF;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1{
+  font-weight: bold;
+  font-size: 300%;
 }
 
 .example-container {
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-around;
+  
 }
 
 .main-container {

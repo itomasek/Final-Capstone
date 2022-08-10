@@ -1,24 +1,25 @@
 <template>
   
   <div class="container">
-    <img class="hero-img" src="../../assets/placeholderLogo.png" alt="placeholder-logo">
+    <img class="hero-img" src="../../assets/Logo.jpg" alt="placeholder-logo">
     <div>
       <router-link v-bind:to="{ name: 'home' }"
-        ><button>Home</button></router-link
+        ><button class="home">Home</button></router-link
       >
     </div>
+    
+    <div>
+      <router-link v-bind:to="{ name: 'register' }"
+        ><button class="register">Register</button></router-link
+      >
+    </div>
+    <div><button class="info">Info</button></div>
 
     <div v-if="$store.state.token != ''">
       <router-link v-bind:to="{ name: 'logout' }"
-        ><button>Logout</button></router-link
+        ><button class="logout">Logout</button></router-link
       >
     </div>
-    <div>
-      <router-link v-bind:to="{ name: 'register' }"
-        ><button>Register</button></router-link
-      >
-    </div>
-    <div><button>Info</button></div>
   </div>
 </template>
 
@@ -31,16 +32,19 @@ export default {
 <style>
 .container {
   display: flex;
-  justify-content: space-evenly;
   align-items: center;
   flex-wrap: nowrap;
-  background: blanchedalmond;
+  background: #CDDEE8;
   padding: 5px;
   margin: 5px;
 }
 
 .hero-img {
-  height: 100px;
-  width: 100px;
+  height: 200px;
+  width: 200px;
+  margin-right: 400px;
 }
+
+
+
 </style>
