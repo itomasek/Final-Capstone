@@ -58,6 +58,20 @@ public class JdbcCardDao implements CardDao{
         return decks;
     }
 
+    @Override
+    public int createDeck(Deck deck) {
+        String sql = "INSERT INTO deck (name, subject, description, user_id) VALUES (?, ?, ?, ?) RETURNING user_id";
+        int userId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getName(), deck.getSubject(), deck.getDescription(), deck.getUserId());
+        return userId;
+    }
+
+    @Override
+    public int getNumberOfCards(int deckId) {
+        String sql = "SELECT COUNT(*) FROM card_deck WHERE deck_id = ?";
+        int numberOfCards = jdbcTemplate.queryForObject(sql, Integer.class, deckId);
+        return numberOfCards;
+    }
+
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();
         deck.setDeckId(rowSet.getInt("deck_id"));

@@ -1,8 +1,18 @@
 <template>
   <div>
     <h1>Your Decks So Far:</h1>
+    <p v-if="this.decks.length == 0">You Don't Have Any Decks Yet!</p>
     <div class="deck-container">
       <deck v-for="deck in decks" v-bind:key="deck.deckId" v-bind:deck="deck" />
+    </div>
+    <hr />
+    <h2>Example Decks:</h2>
+    <div class="example-deck-container">
+      <deck
+        v-for="deck in exampleDecks"
+        v-bind:key="deck.deckId"
+        v-bind:deck="deck"
+      />
     </div>
   </div>
 </template>
@@ -17,20 +27,43 @@ export default {
   data() {
     return {
       decks: [],
+      exampleDecks: [],
     };
   },
   created() {
     CardService.listDecks(this.$store.state.user.id).then((response) => {
       this.decks = response.data;
     });
+    CardService.listDecks(2).then((response) => {
+      this.exampleDecks = response.data;
+    });
   },
   updated() {
     CardService.listDecks(this.$store.state.user.id).then((response) => {
       this.decks = response.data;
+    });
+    CardService.listDecks(2).then((response) => {
+      this.exampleDecks = response.data;
     });
   },
 };
 </script>
 
 <style>
+p,
+h2, h1 {
+  text-align: center;
+}
+
+.deck-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 300px;
+}
+
+.example-deck-container {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 300px;
+}
 </style>

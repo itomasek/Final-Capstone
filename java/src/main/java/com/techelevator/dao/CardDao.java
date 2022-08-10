@@ -16,4 +16,8 @@ public interface CardDao {
     public int updateCard(int cardId, Card card);
 
     List<Deck> getDecks(int userId);
+
+    int createDeck(Deck deck);
+
+    int getNumberOfCards(int deckId);
 }

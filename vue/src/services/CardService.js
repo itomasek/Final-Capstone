@@ -14,5 +14,13 @@ export default {
 
     listDecks(userId) {
         return axios.get(`/decks/${userId}`);
+    },
+
+    createDeck(deck) {
+        return axios.post('/decks', deck);
+    },
+
+    getNumberOfCards(deckId) {
+        return axios.get(`/deck-cards/${deckId}`)
     }
 }

@@ -39,5 +39,13 @@ public class CardController {
         return cardDao.getDecks(userId);
     }
 
+    @RequestMapping(path = "/decks", method = RequestMethod.POST)
+    public int createDeck(@RequestBody Deck deck) {
+        return cardDao.createDeck(deck);
+    }
 
+    @RequestMapping(path = "/deck-cards/{deckId}", method = RequestMethod.GET)
+    public int getNumberOfCards(@PathVariable int deckId) {
+        return cardDao.getNumberOfCards(deckId);
+    }
 }

@@ -9,6 +9,7 @@ import NewCard from '../views/NewCard.vue'
 import AllCards from '../views/AllCards.vue'
 import EditCard from '../views/EditCard.vue'
 import AllDecks from '../views/AllDecks.vue'
+import NewDeck from '../views/NewDeck.vue'
 
 Vue.use(Router)
 
@@ -85,6 +86,14 @@ const router = new Router({
       path: "/decks/:user_id",
       name: "my-decks",
       component: AllDecks,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/new-deck",
+      name: "new-card",
+      component: NewDeck,
       meta: {
         requiresAuth: true
       }
