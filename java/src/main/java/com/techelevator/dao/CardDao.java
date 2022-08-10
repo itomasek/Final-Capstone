@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
+import com.techelevator.model.Deck;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface CardDao {
     int createCard(Card card);
 
     public int updateCard(int cardId, Card card);
+
+    List<Deck> getDecks(int userId);
 }

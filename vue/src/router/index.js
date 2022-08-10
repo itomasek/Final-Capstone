@@ -8,6 +8,7 @@ import store from '../store/index'
 import NewCard from '../views/NewCard.vue'
 import AllCards from '../views/AllCards.vue'
 import EditCard from '../views/EditCard.vue'
+import AllDecks from '../views/AllDecks.vue'
 
 Vue.use(Router)
 
@@ -76,6 +77,14 @@ const router = new Router({
       path: "/card-detail/:card_id",
       name: "card-detail",
       component: EditCard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/decks/:user_id",
+      name: "my-decks",
+      component: AllDecks,
       meta: {
         requiresAuth: true
       }

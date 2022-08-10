@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Card;
+import com.techelevator.model.Deck;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -44,6 +45,27 @@ public class JdbcCardDao implements CardDao{
         String updateSql = "UPDATE card SET subject = ?, question = ?, tags = ?, answer = ?, user_id = ? WHERE card_id = ?";
         int rowsUpdated = jdbcTemplate.update(updateSql, card.getSubject(), card.getQuestion(), card.getTags(), card.getAnswer(), card.getUserId(), cardId);
         return rowsUpdated;
+    }
+
+    @Override
+    public List<Deck> getDecks(int userId) {
+        List<Deck> decks = new ArrayList<>();
+        String getDeckSql = "SELECT * FROM deck WHERE user_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(getDeckSql, userId);
+        while (results.next()) {
+            decks.add(mapRowToDeck(results));
+        }
+        return decks;
+    }
+
+    private Deck mapRowToDeck(SqlRowSet rowSet) {
+        Deck deck = new Deck();
+        deck.setDeckId(rowSet.getInt("deck_id"));
+        deck.setName(rowSet.getString("name"));
+        deck.setSubject(rowSet.getString("subject"));
+        deck.setDescription(rowSet.getString("description"));
+        deck.setUserId(rowSet.getInt("user_id"));
+        return deck;
     }
 
     private Card mapRowToCard(SqlRowSet rowSet) {
