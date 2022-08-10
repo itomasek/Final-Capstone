@@ -3,12 +3,15 @@
       <div>
           <router-link v-bind:to="{name: 'new-card'}"><button>Create New Card</button></router-link>
       </div>
+      <div>
+        <router-link v-bind:to="{name: 'new-deck'}"><button>Create New Deck</button></router-link>
+      </div>
     <div>
       <router-link v-bind:to="{ name: 'my-cards', params: {user_id: this.$store.state.user.id} }">
         <button>Your Cards</button>
       </router-link>
     </div>
-    <div><button>Your Decks</button></div>
+    <div><router-link v-bind:to="{name: 'my-decks', params: {user_id: this.$store.state.user.id}}"><button>Your Decks</button></router-link></div>
     <div><button>Study Session</button></div>
   </div>
 </template>

@@ -22,8 +22,8 @@
           v-model="deck.description"
         ></textarea>
       </div>
-      <button type="submit" v-on:click.prevent="saveDeck">Save New Deck</button>
-      <button v-on:click="cancelForm">Cancel</button>
+      <button class="ndbutton" type="submit" v-on:click.prevent="saveDeck">Save New Deck</button>
+      <button class="ndbutton" v-on:click="cancelForm">Cancel</button>
     </form>
   </div>
 </template>
@@ -74,5 +74,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.ndbutton {
+  margin-bottom: 5px;
+  width: 150px;
 }
 </style>

@@ -61,6 +61,7 @@ export default {
   margin: 50px;
   border-radius: 30px;
   background-color: #C9E3DA;
+  width: 400px;
 }
 
 #back {
@@ -76,6 +77,7 @@ export default {
   margin: 50px;
   border-radius: 30px;
   background-color: #DBF0E9;
+  width: 400px;
 }
 
 

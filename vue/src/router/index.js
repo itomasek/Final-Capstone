@@ -92,7 +92,7 @@ const router = new Router({
     },
     {
       path: "/new-deck",
-      name: "new-card",
+      name: "new-deck",
       component: NewDeck,
       meta: {
         requiresAuth: true

@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+      <h1 id="headline" class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -14,7 +14,7 @@
         v-model="user.username"
         required
         autofocus
-      />
+      /> <br>
       <label for="password" class="sr-only">Password: </label>
       <input
         type="password"
@@ -23,7 +23,7 @@
         placeholder="Password"
         v-model="user.password"
         required
-      />
+      /> <br>
       <input
         type="password"
         id="confirmPassword"
@@ -31,9 +31,13 @@
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
-      />
-      
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      /> <br>
+
+      <button
+        id="sign-in"
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+      >
         Create Account
       </button>
       <h5>Already Have An Account?</h5>
@@ -43,35 +47,35 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
+import authService from "../services/AuthService";
 
 export default {
-  name: 'register',
+  name: "register",
   data() {
     return {
       user: {
-        username: '',
-        password: '',
-        confirmPassword: '',
-        role: 'user',
+        username: "",
+        password: "",
+        confirmPassword: "",
+        role: "user",
       },
       registrationErrors: false,
-      registrationErrorMsg: 'There were problems registering this user.',
+      registrationErrorMsg: "There were problems registering this user.",
     };
   },
   methods: {
     register() {
       if (this.user.password != this.user.confirmPassword) {
         this.registrationErrors = true;
-        this.registrationErrorMsg = 'Password & Confirm Password do not match.';
+        this.registrationErrorMsg = "Password & Confirm Password do not match.";
       } else {
         authService
           .register(this.user)
           .then((response) => {
             if (response.status == 201) {
               this.$router.push({
-                path: '/login',
-                query: { registration: 'success' },
+                path: "/login",
+                query: { registration: "success" },
               });
             }
           })
@@ -79,28 +83,39 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = "Bad Request: Validation Errors";
             }
           });
       }
     },
     clearErrors() {
       this.registrationErrors = false;
-      this.registrationErrorMsg = 'There were problems registering this user.';
+      this.registrationErrorMsg = "There were problems registering this user.";
     },
   },
 };
 </script>
 
 <style>
-  .form-register {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: space-evenly;
-    margin-left: 300px;
-    margin-right: 250px;
-  }
+.form-register {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+
+  margin-left: 300px;
+  margin-right: 250px;
+}
+
+#sign-in {
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+.form-control {
+  width: 30%;
   
+}
+
 </style>

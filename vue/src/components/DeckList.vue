@@ -57,12 +57,14 @@ h2, h1 {
 
 .deck-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 300px;
 }
 
 .example-deck-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 300px;
 }

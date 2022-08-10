@@ -8,7 +8,7 @@
       >
     </div>
     
-    <div>
+    <div v-if="$store.state.token == ''">
       <router-link v-bind:to="{ name: 'register' }"
         ><button class="header">Register</button></router-link
       >

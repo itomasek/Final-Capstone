@@ -42,6 +42,7 @@ export default {
 
 <style>
 #deck-container {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -52,16 +53,18 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: burlywood;
+  background-color: #C9E3DA;
+  width: 400px;
 }
 
 .deck-name {
   grid-area: name;
+  text-decoration: underline;
 }
 
 .deck-subject {
   grid-area: subject;
-  text-decoration: underline;
+  
 }
 
 .deck-description {
