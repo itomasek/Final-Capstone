@@ -68,7 +68,10 @@ export default {
             answer: "",
             userId: this.$store.state.user.id,
           };
-          this.$router.push({name: 'my-cards'})
+          this.$router.push({
+            name: "my-cards",
+            params: { user_id: this.card.userId },
+          });
         }
       });
     },

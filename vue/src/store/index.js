@@ -22,32 +22,43 @@ export default new Vuex.Store({
     user: currentUser || {},
     exampleCards: [
       {
-        cardId: 1,
+        cardId: 13,
         subject: 'History',
         question: 'List in order the first five presidents of the USA.',
         tags: 'Presidents, History, Government',
         answer: 'Washington, Adams, Jefferson, Madison, Monroe',
-        username: 'ExampleUser'
+        username: 'ExampleUser',
+        userId: 2
 
       },
       {
-        cardId: 2,
+        cardId: 14,
         subject: 'Language',
         question: 'How do you say "Hello" in Spanish, French, and German',
         tags: 'Languages, Culture',
         answer: 'Hola! Bonjour! Guten Tag!',
-        username: 'ExampleUser'
+        username: 'ExampleUser',
+        userId: 2
       },
       {
-        cardId: 3,
+        cardId: 15,
         subject: 'Science',
         question: 'What are the elements that comprise water? BONUS: give the molecular structure!',
         tags: 'Chemistry, Molecules, Science',
         answer: 'Hydrogen and Oxygen: H2O',
-        username: 'ExampleUser'
+        username: 'ExampleUser',
+        userId: 2
 
       },
-    ]
+    ],
+    activeEditCard: {
+      cardId: null,
+      subject: "",
+      question: "",
+      tags: "",
+      answer: "",
+      userId: "",
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -65,6 +76,9 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_EDIT_CARD(state, card) {
+      state.activeEditCard = card;
     }
   }
 })

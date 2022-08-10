@@ -1,8 +1,14 @@
 <template>
   <div>
     <h1>Your Cards So Far:</h1>
+    <div id="filter-bar">
+      <label for="filter-cards">Filter By Tags: </label>
+      <br />
+      <input type="text" name="filter-cards" v-model="filter" />
+      
+    </div>
     <div class="cards-container">
-      <card v-for="card in cards" v-bind:key="card.cardId" v-bind:card="card" />
+      <card v-for="card in filteredCards" v-bind:key="card.cardId" v-bind:card="card" />
     </div>
   </div>
 </template>
@@ -19,12 +25,26 @@ export default {
   data() {
     return {
       cards: [],
+      filter: "",
     };
   },
   created() {
     CardService.listCards(this.$store.state.user.id).then((response) => {
       this.cards = response.data;
     });
+  },
+  updated() {
+    CardService.listCards(this.$store.state.user.id).then((response) => {
+      this.cards = response.data;
+    });
+  },
+  computed: {
+    filteredCards() {
+      return this.cards.filter((card) => {
+        return card.tags.toLowerCase().includes(this.filter.toLowerCase());
+      });
+      
+    },
   },
 };
 </script>
@@ -38,5 +58,9 @@ export default {
 
 h1 {
   text-align: center;
+}
+
+#filter-bar {
+  margin-left: 300px;
 }
 </style>

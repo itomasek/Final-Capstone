@@ -4,7 +4,7 @@
       <h1 class="subject">{{ card.subject }}</h1>
       <p class="tags">{{ card.tags }}</p>
       <h3 class="question">Question: <br>{{ card.question }}</h3>
-      <button class="edit">Edit</button>
+      <button class="edit" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>
@@ -12,7 +12,7 @@
       <h1 class="subject">{{ card.subject }}</h1>
       <p class="tags">{{ card.tags }}</p>
       <h3 class="answer">Answer: <br>{{ card.answer }}</h3>
-      <button class="edit">Edit</button>
+      <button class="edit" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>
@@ -38,6 +38,10 @@ export default {
     toggle() {
       !this.showFront;
     },
+    editCard() {
+      this.$store.commit('SET_EDIT_CARD', this.card);
+      this.$router.push({name: 'card-detail', params: {card_id: this.card.cardId}});
+    }
   },
 };
 </script>

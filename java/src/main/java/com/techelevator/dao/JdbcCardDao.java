@@ -40,6 +40,12 @@ public class JdbcCardDao implements CardDao{
         return userId;
     }
 
+    public int updateCard(int cardId, Card card) {
+        String updateSql = "UPDATE card SET subject = ?, question = ?, tags = ?, answer = ?, user_id = ? WHERE card_id = ?";
+        int rowsUpdated = jdbcTemplate.update(updateSql, card.getSubject(), card.getQuestion(), card.getTags(), card.getAnswer(), card.getUserId(), cardId);
+        return rowsUpdated;
+    }
+
     private Card mapRowToCard(SqlRowSet rowSet) {
         Card card = new Card();
         card.setCardId(rowSet.getInt("card_id"));

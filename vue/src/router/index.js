@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import NewCard from '../views/NewCard.vue'
 import AllCards from '../views/AllCards.vue'
+import EditCard from '../views/EditCard.vue'
 
 Vue.use(Router)
 
@@ -67,6 +68,14 @@ const router = new Router({
       path: "/cards/:user_id",
       name: "my-cards",
       component: AllCards,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/card-detail/:card_id",
+      name: "card-detail",
+      component: EditCard,
       meta: {
         requiresAuth: true
       }

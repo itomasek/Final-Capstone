@@ -11,4 +11,6 @@ public interface CardDao {
     Card getCardById(int cardId);
 
     int createCard(Card card);
+
+    public int updateCard(int cardId, Card card);
 }

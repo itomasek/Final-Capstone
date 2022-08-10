@@ -7,5 +7,8 @@ export default {
 
     listCards(id) {
         return axios.get(`/cards/${id}`);
+    },
+    updateCard(cardId, card) {
+        return axios.put(`/card/${cardId}`, card)
     }
 }

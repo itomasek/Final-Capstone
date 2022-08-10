@@ -28,5 +28,10 @@ public class CardController {
         return cardDao.createCard(card);
     }
 
+    @RequestMapping(path = "/card/{cardId}", method = RequestMethod.PUT)
+    public int updateCard(@PathVariable int cardId, @RequestBody Card card) {
+        return cardDao.updateCard(cardId, card);
+    }
+
 
 }
