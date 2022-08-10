@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only">Username: </label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only">Password: </label>
       <input
         type="password"
         id="password"
@@ -94,11 +94,13 @@ export default {
 
 <style>
   .form-register {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: space-evenly;
-    margin-left: 500px;
-    margin-right: 500px;
+    margin-left: 300px;
+    margin-right: 250px;
   }
+  
 </style>

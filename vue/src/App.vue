@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="hero-banner"></div>
+    <div id="hero-banner">WHY IS THIS HERE</div>
     <app-header />
     <side-bar />
     <router-view />
@@ -19,7 +19,7 @@ export default {
 
 <style>
 #hero-banner {
-  background-color: aqua;
+  background-color: #F6FBFF;
   display: flex;
   height: 50px;
 }

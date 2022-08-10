@@ -7,6 +7,7 @@
       <button class="edit" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
+      
     </div>
     <div id="back" v-else>
       <h1 class="subject">{{ card.subject }}</h1>
@@ -48,6 +49,7 @@ export default {
 
 <style>
 #front {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -58,10 +60,11 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: burlywood;
+  background-color: #C9E3DA;
 }
 
 #back {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -72,7 +75,7 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: burlywood;
+  background-color: #DBF0E9;
 }
 
 
@@ -95,6 +98,7 @@ export default {
 
 .author {
   grid-area: author;
+  text-align: center;
 }
 
 .flip {

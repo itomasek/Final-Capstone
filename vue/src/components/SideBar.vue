@@ -28,12 +28,20 @@ export default {
         margin-bottom: 100px;
         position: absolute;
         justify-content: space-around;
-        background-color: rgb(177, 87, 219);
+        background-color: #CDDEE8;
     }
 
     #sidebar-container button {
-        padding: 50px;
-        background-color: aquamarine;
-        color: brown;
+        padding: 50px 25px 50px 25px;
+        background-color: #DEEBF3;
+        color: black;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        width: 205px;
     }
+    
+    #sidebar-container button:hover{
+      text-decoration: underline;
+      color: black;
+    }
+    
 </style>

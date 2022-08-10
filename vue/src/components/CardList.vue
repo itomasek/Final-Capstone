@@ -51,16 +51,20 @@ export default {
 
 <style>
 .cards-container {
+  
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-left: 300px;
 }
 
 h1 {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
 }
 
 #filter-bar {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-left: 300px;
 }
 </style>

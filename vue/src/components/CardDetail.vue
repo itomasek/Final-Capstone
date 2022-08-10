@@ -32,8 +32,8 @@
           v-model.trim="card.answer"
         ></textarea>
       </div>
-      <button v-on:click.prevent="saveEdit">Save Your Changes</button>
-      <button v-on:click="cancelEdit">Cancel</button>
+      <button class="editcard" v-on:click.prevent="saveEdit">Save Your Changes</button>
+      <button class="editcard" v-on:click="cancelEdit">Cancel</button>
     </form>
   </div>
 </template>
@@ -77,4 +77,13 @@ export default {
 </script>
 
 <style>
+.h1 {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.editcard {
+  margin-bottom: 5px;
+  width: 150px;
+
+}
 </style>

@@ -34,7 +34,7 @@ h1{
 
 .example-container {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   
 }

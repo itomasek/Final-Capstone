@@ -32,8 +32,8 @@
           v-model="card.answer"
         ></textarea>
       </div>
-      <button type="submit" v-on:click.prevent="saveCard">Save New Card</button>
-      <button v-on:click="cancelForm">Cancel</button>
+      <button class="ncbutton" type="submit" v-on:click.prevent="saveCard">Save New Card</button>
+      <button class="ncbutton" v-on:click="cancelForm">Cancel</button>
     </form>
   </div>
 </template>
@@ -88,5 +88,12 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.ncbutton {
+  margin-bottom: 5px;
+  width: 150px;
+
 }
 </style>
