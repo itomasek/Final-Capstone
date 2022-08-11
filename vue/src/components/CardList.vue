@@ -5,10 +5,13 @@
       <label for="filter-cards">Filter By Tags: </label>
       <br />
       <input type="text" name="filter-cards" v-model="filter" />
-      
     </div>
     <div class="cards-container">
-      <card v-for="card in filteredCards" v-bind:key="card.cardId" v-bind:card="card" />
+      <card
+        v-for="card in filteredCards"
+        v-bind:key="card.cardId"
+        v-bind:card="card"
+      />
     </div>
   </div>
 </template>
@@ -43,7 +46,6 @@ export default {
       return this.cards.filter((card) => {
         return card.tags.toLowerCase().includes(this.filter.toLowerCase());
       });
-      
     },
   },
 };
@@ -51,7 +53,6 @@ export default {
 
 <style>
 .cards-container {
-  
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -59,12 +60,14 @@ export default {
 }
 
 h1 {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
 
 #filter-bar {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   margin-left: 300px;
 }
 </style>
