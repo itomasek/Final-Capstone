@@ -103,19 +103,24 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
+  text-align: center;
 
-  margin-left: 300px;
-  margin-right: 250px;
+  
 }
 
 #sign-in {
-  margin-bottom: 5px;
+ margin:auto;
   width: 150px;
 }
 
 .form-control {
   width: 30%;
   
+  margin: auto;
+  
+}
+.text-center{
+  text-align:center
 }
 
 </style>

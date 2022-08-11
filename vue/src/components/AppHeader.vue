@@ -53,6 +53,7 @@
         ><button class="header">Logout</button></router-link
       >
     </div>
+    
   </div>
 </template>
 
@@ -89,9 +90,16 @@ export default {
   padding: 20px;
   background-color: #deebf3;
   border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .header:hover {
   text-decoration: underline;
 }
+#logout-button{
+  margin-left: 100px;
+  
+}
+
 </style>

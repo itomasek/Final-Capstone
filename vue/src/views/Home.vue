@@ -1,6 +1,8 @@
 <template>
   <div class="home">
+    
     <div class="main-container">
+      
       <h1>Welcome to Flashdex!</h1>
       <h3>Improving your brain one flashcard at a time!</h3>
       <p>Check out these example cards! The answers can be viewed by pressing 'Flip'.</p>
@@ -9,7 +11,11 @@
       <card v-for="card in this.$store.state.exampleCards"
       v-bind:key="card.cardId" v-bind:card="card" />
     </div>
+    <footer class ="footer">
+      &copy; Flashdex Tech Elevator 2022
+    </footer>
   </div>
+  
 </template>
 
 <script>
@@ -22,7 +28,7 @@ export default {
 
 <style>
 .home {
-  margin-left: 250px;
+ 
   background-color: #F6FBFF;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -42,4 +48,11 @@ h1{
 .main-container {
   text-align: center;
 }
+.footer {
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #CDDEE8;
+  padding: 25px;
+  text-align: right;
+}
+
 </style>

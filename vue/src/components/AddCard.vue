@@ -84,16 +84,18 @@ export default {
 
 <style>
 .new-card-form {
-  margin-left: 300px;
+  
   display: flex;
   flex-direction: column;
   align-content: center;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
 }
 
 .ncbutton {
   margin-bottom: 5px;
   width: 150px;
+  margin:auto;
 
 }
 </style>

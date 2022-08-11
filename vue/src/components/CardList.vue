@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1>Your Cards So Far:</h1>
+    <h1 class="title">Current Cards:</h1>
     <div id="filter-bar">
-      <label for="filter-cards">Filter By Tags: </label>
+      <label for="filter-cards">Search By Tags: </label>
       <br />
-      <input type="text" name="filter-cards" v-model="filter" />
+      <input class="filter-bar" type="text" name="filter-cards" v-model="filter" />
     </div>
     <div class="cards-container">
       <card
@@ -56,18 +56,30 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 300px;
+  
+  
 }
 
 h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
+  
+}
+.title{
+  font-size: 75px;
+  text-decoration: underline;
 }
 
 #filter-bar {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  margin-left: 300px;
+  margin:auto;
+  text-align: center;
+  font-size: 50px;
+
+}
+.filter-bar{
+  padding: 10px 50px 10px 50px;
 }
 </style>

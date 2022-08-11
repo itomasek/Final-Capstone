@@ -90,7 +90,7 @@ export default {
 }
 
 .sign-in {
-  margin-bottom: 5px;
+  margin:auto;
   width: 150px;
 }
 

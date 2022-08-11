@@ -60,7 +60,7 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #C9E3DA;
+  background-color: #8ab4a7;
   width: 400px;
 }
 
@@ -79,6 +79,12 @@ export default {
   background-color: #DBF0E9;
   width: 400px;
 }
+.edit {
+  width: 75px;
+}
+.flip{
+  width: 75px;
+}
 
 
 .subject {
@@ -96,15 +102,19 @@ export default {
 
 .edit {
   grid-area: edit;
+  border-radius: 10px;
 }
 
 .author {
   grid-area: author;
-  text-align: center;
+  text-align:justify;
+  
+  
 }
 
 .flip {
   grid-area: flip;
+  border-radius: 10px;
 }
 
 .answer {
