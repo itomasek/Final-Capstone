@@ -5,13 +5,13 @@
       <p class="tags">{{ card.tags }}</p>
       <h3 class="question">Question: <br />{{ card.question }}</h3>
       <div class="add-to-deck">
-        <label for="AddToDeck">Add To Deck</label>
+        <label for="AddToDeck"> {{ determineCheckText }} </label>
         <input
           type="checkbox"
           name="AddToDeck"
           v-bind:id="card.cardId"
-          v-bind:value="card.cardId"
           v-on:change="toggleDeckArray(card.cardId)"
+          v-model="idIsInStoreArray"
         />
       </div>
       <p class="author">{{ this.username }}</p>
@@ -21,16 +21,7 @@
       <h1 class="subject">{{ card.subject }}</h1>
       <p class="tags">{{ card.tags }}</p>
       <h3 class="answer">Answer: <br />{{ card.answer }}</h3>
-      <div class="add-to-deck">
-        <label for="AddToDeck">Add To Deck</label>
-        <input
-          type="checkbox"
-          name="AddToDeck"
-          v-bind:id="card.cardId"
-          v-bind:value="card.cardId"
-          v-on:change="toggleDeckArray(card.cardId)"
-        />
-      </div>
+
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>
@@ -44,6 +35,20 @@ export default {
   computed: {
     username() {
       return this.$store.state.user.username;
+    },
+    idIsInStoreArray() {
+      let result;
+      if (this.$store.state.cardIdsToAdd.includes(this.card.cardId)) {
+        result = true;
+      } else {
+        result = false;
+      }
+      return result;
+    },
+    determineCheckText() {
+      return this.$store.state.cardIdsToAdd.includes(this.card.cardId)
+        ? "Card Is In Deck"
+        : "Add Card To Deck";
     },
   },
   data() {
@@ -93,7 +98,7 @@ export default {
   grid-template-areas:
     "subject . tags "
     "answer answer answer"
-    "add author flip";
+    ". author flip";
   border: solid black 2px;
   padding: 50px;
   margin: 50px;
