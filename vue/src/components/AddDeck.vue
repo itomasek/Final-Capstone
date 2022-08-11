@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <form class="new-deck-form" v-on:submit.prevent>
       <h1>New Deck Form</h1>
       <div class="ndform">
@@ -48,6 +48,8 @@ export default {
         userId: this.$store.state.user.id,
       },
       newDeckId: null,
+      createResponse: null,
+      createError: null,
     };
   },
   methods: {
@@ -64,10 +66,16 @@ export default {
           this.newDeckId = response.data;
           if (this.$store.state.cardIdsToAdd.length > 0) {
             this.$store.state.cardIdsToAdd.forEach((Id) => {
-              CardService.putCardsInDeck(Id, this.newDeckId);
+              CardService.putCardsInDeck(Id, this.newDeckId)
+                .then((response) => {
+                  this.createResponse = response.statusText;
+                })
+                .catch((error) => {
+                  this.createError = error.statusText;
+                });
             });
           }
-          this.$store.commit('CLEAR_CARD_IDS');
+          this.$store.commit("CLEAR_CARD_IDS");
           this.$router.push({
             name: "my-decks",
             params: { user_id: this.deck.userId },
@@ -83,7 +91,6 @@ export default {
 </script>
 
 <style>
-
 .new-deck-form {
   margin: auto;
   display: flex;
@@ -93,14 +100,13 @@ export default {
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
-.ndform{
+.ndform {
   margin: auto;
   text-align: center;
-  
 }
 
 .ndbutton {
-  margin:auto;;
+  margin: auto;
   width: 150px;
 }
 </style>

@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 public class Deck {
 
-    private int DeckId;
+    private int deckId;
     private String name;
     private String subject;
     private String description;
@@ -11,7 +11,7 @@ public class Deck {
     public Deck() {}
 
     public Deck(int deckId, String name, String subject, String description, int userId) {
-        DeckId = deckId;
+        this.deckId = deckId;
         this.name = name;
         this.subject = subject;
         this.description = description;
@@ -19,11 +19,11 @@ public class Deck {
     }
 
     public int getDeckId() {
-        return DeckId;
+        return deckId;
     }
 
     public void setDeckId(int deckId) {
-        DeckId = deckId;
+        this.deckId = deckId;
     }
 
     public String getName() {

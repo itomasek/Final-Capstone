@@ -34,5 +34,9 @@ export default {
 
     getExcludedCards(deckId) {
         return axios.get(`/cards-out/${deckId}`);
+    },
+
+    clearCardDeck(deckId) {
+        return axios.delete(`/clear-card-deck/${deckId}`);
     }
 }

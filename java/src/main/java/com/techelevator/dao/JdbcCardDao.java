@@ -101,6 +101,13 @@ public class JdbcCardDao implements CardDao{
         return cards;
     }
 
+    @Override
+    public int clearCardDeck(int deckId) {
+        String sql = "DELETE FROM card_deck WHERE deck_id = ?";
+        int numberOfRows = jdbcTemplate.update(sql, Integer.class, deckId);
+        return numberOfRows;
+    }
+
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();
         deck.setDeckId(rowSet.getInt("deck_id"));

@@ -26,4 +26,6 @@ public interface CardDao {
     List<Card> getCardsByDeckId(int deckId);
 
     List<Card> getExcludedCards(int deckId);
+
+    int clearCardDeck(int deckId);
 }

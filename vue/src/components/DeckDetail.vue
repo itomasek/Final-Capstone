@@ -30,6 +30,7 @@
     <hr />
     <div id="card-container">
       <div id="cards-in-deck">
+        <h3>Cards Currently In This Deck: </h3>
         <deck-card
           v-for="card in inCards"
           v-bind:key="card.cardId"
@@ -37,6 +38,7 @@
         />
       </div>
       <div id="cards-not-in-deck">
+        <h3>Cards Not Currently In This Deck: </h3>
         <deck-card
           v-for="card in outCards"
           v-bind:key="card.cardId"
@@ -98,7 +100,7 @@ export default {
     this.inCards.forEach((card) => {
       this.$store.commit("ADD_CARD_ID", card.cardId);
     });
-  }
+  },
 };
 </script>
 
@@ -111,9 +113,17 @@ export default {
 
 #cards-in-deck {
   grid-area: in;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #cards-not-in-deck {
   grid-area: out;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
 }
 </style>

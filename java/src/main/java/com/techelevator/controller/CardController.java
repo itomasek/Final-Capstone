@@ -64,4 +64,9 @@ public class CardController {
         return cardDao.getExcludedCards(deckId);
     }
 
+    @RequestMapping(path = "/clear-card-deck/{deckId}", method = RequestMethod.DELETE)
+    public int clearCardDeck(@PathVariable int deckId) {
+        return cardDao.clearCardDeck(deckId);
+    }
+
 }
