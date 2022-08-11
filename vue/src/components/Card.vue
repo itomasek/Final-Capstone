@@ -79,12 +79,6 @@ export default {
   background-color: #DBF0E9;
   width: 400px;
 }
-.edit {
-  width: 75px;
-}
-.flip{
-  width: 75px;
-}
 
 
 .subject {
@@ -103,6 +97,7 @@ export default {
 .edit {
   grid-area: edit;
   border-radius: 10px;
+  width: 75px;
 }
 
 .author {
@@ -115,6 +110,7 @@ export default {
 .flip {
   grid-area: flip;
   border-radius: 10px;
+  width: 75px;
 }
 
 .answer {
