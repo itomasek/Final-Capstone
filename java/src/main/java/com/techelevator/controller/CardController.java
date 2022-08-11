@@ -49,9 +49,19 @@ public class CardController {
         return cardDao.getNumberOfCards(deckId);
     }
 
-    @RequestMapping(path = "cards/{cardId}/decks/{deckId}", method = RequestMethod.POST)
+    @RequestMapping(path = "/cards/{cardId}/decks/{deckId}", method = RequestMethod.POST)
     public void putCardsInDeck(@PathVariable int cardId, @PathVariable int deckId) {
         cardDao.putCardsInDeck(cardId, deckId);
+    }
+
+    @RequestMapping(path = "/cards-in/{deckId}", method = RequestMethod.GET)
+    public List<Card> getCardsByDeckId(@PathVariable int deckId) {
+        return cardDao.getCardsByDeckId(deckId);
+    }
+
+    @RequestMapping(path = "/cards-out/{deckId}", method = RequestMethod.GET)
+    public List<Card> getExcludedCards(@PathVariable int deckId) {
+        return cardDao.getExcludedCards(deckId);
     }
 
 }

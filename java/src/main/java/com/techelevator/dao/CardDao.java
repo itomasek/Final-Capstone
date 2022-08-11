@@ -22,4 +22,8 @@ public interface CardDao {
     int getNumberOfCards(int deckId);
 
     void putCardsInDeck(int deckId, int cardID);
+
+    List<Card> getCardsByDeckId(int deckId);
+
+    List<Card> getExcludedCards(int deckId);
 }

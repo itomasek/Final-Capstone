@@ -59,7 +59,14 @@ export default new Vuex.Store({
       answer: "",
       userId: "",
     },
-    cardIdsToAdd: []
+    cardIdsToAdd: [],
+    activeEditDeck: {
+      deckId: null,
+      name: "",
+      subject: "",
+      description: "",
+      userId: ""
+    }
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -89,6 +96,9 @@ export default new Vuex.Store({
     },
     CLEAR_CARD_IDS(state) {
       state.cardIdsToAdd = [];
+    },
+    SET_EDIT_DECK(state, deck) {
+      state.activeEditDeck = deck;
     }
   }
 })

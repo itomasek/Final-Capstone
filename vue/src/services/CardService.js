@@ -26,5 +26,13 @@ export default {
 
     putCardsInDeck(cardId, deckId) {
         return axios.post(`/cards/${cardId}/decks/${deckId}`);
+    },
+
+    getCardsByDeckId(deckId) {
+        return axios.get(`/cards-in/${deckId}`);
+    },
+
+    getExcludedCards(deckId) {
+        return axios.get(`/cards-out/${deckId}`);
     }
 }
