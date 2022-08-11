@@ -5,7 +5,7 @@
     
     <router-view />
 
-    <app-footer></app-footer>
+    <app-footer />
   </div>
 </template>
 
@@ -14,14 +14,13 @@ import AppHeader from "./components/AppHeader.vue";
 import AppFooter from "./components/AppFooter.vue";
 
 
+
 export default {
   name: "app",
-  components: { AppHeader,AppFooter},
+  components: { AppHeader, AppFooter},
 };
 </script>
 
 <style>
 
-
-</style>
 

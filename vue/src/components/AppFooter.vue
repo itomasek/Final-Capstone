@@ -1,10 +1,10 @@
 <template>
  <div class="container">
     <div>
-      <router-link v-bind:to="{ name: 'new-card' }"
-        ><button class="header">About/Info</button></router-link>
+      <router-link v-bind:to="{ name: 'info' }"
+        ><button class="footer-button">About/Info</button></router-link>
   </div>
-    <footer>&copy;Flashdex Tech Elevator 2022</footer>
+    <div class="footer-copyright">&copy;Flashdex Tech Elevator 2022</div>
   </div>
 </template>
 
@@ -17,33 +17,38 @@ export default {
 <style>
 .container {
   display: flex;
-  align-items: center;
   flex-wrap: nowrap;
   background: #cddee8;
-  padding-left: 5px;
-  padding-top: 5px;
-  padding-bottom: 0;
+  padding:10px;
+  margin-top:10px;
+  
 }
 
 
-.footer {
-  flex-grow: 1;
-  justify-content: space-evenly;
-  flex-grow: 1;
-  margin: 25px;
+.footer-button {
+  
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  padding: 25px;
+  padding: 10px;
   background-color: #CDDEE8;
-  border-radius: 10px;
-  font-size: 20px;
-  font-weight: bold;
-  text-align: right;
+  border-radius: 5px;
+  margin: auto;
+}
+
+#footer-copyright{
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+    
+    text-justify: right;
+}
+div.footer-copyright:nth-child(1) > div.button.class{
+  order: 2;
 }
 
 
-.header:hover {
+.footer-button:hover {
     text-decoration: underline;
 }
+
 
 </style>
