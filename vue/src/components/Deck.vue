@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="deck-container">
-      <h1 class="deck-name">{{ deck.name }}</h1>
+      <h2 class="deck-name">{{ deck.name }}</h2>
       <h4 class="deck-subject">{{ deck.subject }}</h4>
       <br />
       <p class="deck-description">{{ deck.description }}</p>
@@ -45,6 +45,7 @@ export default {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "name . subject"
     "description description description"
@@ -55,11 +56,12 @@ export default {
   border-radius: 30px;
   background-color: #C9E3DA;
   width: 400px;
+  height:300px;
 }
 
 .deck-name {
   grid-area: name;
-  text-decoration: underline;
+  
 }
 
 .deck-subject {
@@ -77,5 +79,8 @@ export default {
 
 .edit-button {
   grid-area: edit;
+  border-radius: 10px;
+  width: 125px;
+  height:50px;
 }
 </style>

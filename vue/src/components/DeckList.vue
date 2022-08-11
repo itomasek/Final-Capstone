@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Your Decks So Far:</h1>
+    <h1>Your Decks:</h1>
     <p v-if="this.decks.length == 0">You Don't Have Any Decks Yet!</p>
     <div class="deck-container">
       <deck v-for="deck in decks" v-bind:key="deck.deckId" v-bind:deck="deck" />
@@ -59,13 +59,13 @@ h2, h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 300px;
+  margin: auto;
 }
 
 .example-deck-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-left: 300px;
+  margin: auto;
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
   <div>
     <div id="front" v-if="showFront">
-      <h1 class="subject">{{ card.subject }}</h1>
+      <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
-      <h3 class="question">Question: <br>{{ card.question }}</h3>
+      <h2 class="question">Question: {{ card.question }}</h2>
       <button class="edit" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
       
     </div>
     <div id="back" v-else>
-      <h1 class="subject">{{ card.subject }}</h1>
+      <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
-      <h3 class="answer">Answer: <br>{{ card.answer }}</h3>
+      <h2 class="answer">Answer: {{ card.answer }}</h2>
       <button class="edit" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
@@ -62,12 +62,14 @@ export default {
   border-radius: 30px;
   background-color: #8ab4a7;
   width: 400px;
+  height:300px;
 }
 
 #back {
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "subject . tags "
     "answer answer answer"
@@ -78,12 +80,13 @@ export default {
   border-radius: 30px;
   background-color: #DBF0E9;
   width: 400px;
+  height:300px;
 }
 
 
 .subject {
   grid-area: subject;
-  text-decoration: underline;
+  
 }
 
 .tags {
@@ -98,6 +101,7 @@ export default {
   grid-area: edit;
   border-radius: 10px;
   width: 75px;
+  height: 50px;
 }
 
 .author {
@@ -111,6 +115,8 @@ export default {
   grid-area: flip;
   border-radius: 10px;
   width: 75px;
+  height:50px;
+  
 }
 
 .answer {

@@ -11,9 +11,7 @@
       <card v-for="card in this.$store.state.exampleCards"
       v-bind:key="card.cardId" v-bind:card="card" />
     </div>
-    <footer class ="footer">
-      &copy; Flashdex Tech Elevator 2022
-    </footer>
+    
   </div>
   
 </template>
@@ -48,11 +46,6 @@ h1{
 .main-container {
   text-align: center;
 }
-.footer {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #CDDEE8;
-  padding: 25px;
-  text-align: right;
-}
+
 
 </style>

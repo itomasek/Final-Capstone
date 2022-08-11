@@ -33,6 +33,7 @@
         ></textarea>
       </div>
       <button class="editcard" v-on:click.prevent="saveEdit">Save Your Changes</button>
+      
       <button class="editcard" v-on:click="cancelEdit">Cancel</button>
     </form>
   </div>
@@ -82,7 +83,7 @@ export default {
 }
 
 .editcard {
-  margin-bottom: 5px;
+  margin: 5px auto;
   width: 150px;
 
 }

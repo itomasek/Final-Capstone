@@ -1,9 +1,9 @@
 <template>
   <div>
     <div id="front" v-if="showFront">
-      <h1 class="subject">{{ card.subject }}</h1>
+      <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
-      <h3 class="question">Question: <br />{{ card.question }}</h3>
+      <h2 class="question">Question: {{ card.question }}</h2>
       <div class="add-to-deck">
         <label for="AddToDeck"> {{ determineCheckText }} </label>
         <input
@@ -20,7 +20,7 @@
     <div id="back" v-else>
       <h1 class="subject">{{ card.subject }}</h1>
       <p class="tags">{{ card.tags }}</p>
-      <h3 class="answer">Answer: <br />{{ card.answer }}</h3>
+      <h3 class="answer">Answer: {{ card.answer }}</h3>
 
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
@@ -78,6 +78,7 @@ export default {
     "Lucida Sans", Arial, sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas:
     "subject . tags "
     "question question question"
@@ -86,7 +87,7 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #c9e3da;
+  background-color: #8ab4a7;
   width: 300px;
 }
 
@@ -103,13 +104,13 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #dbf0e9;
+  background-color: #DBF0E9;
   width: 300px;
 }
 
 .subject {
   grid-area: subject;
-  text-decoration: underline;
+  
 }
 
 .tags {
@@ -129,10 +130,13 @@ export default {
 .author {
   grid-area: author;
   text-align: center;
+  margin-top: 50px;
 }
 
 .flip {
   grid-area: flip;
+  margin-top: 50px;
+  margin-left: 10px;
 }
 
 .answer {

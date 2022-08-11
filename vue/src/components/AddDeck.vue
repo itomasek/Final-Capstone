@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div >
     <form class="new-deck-form" v-on:submit.prevent>
       <h1>New Deck Form</h1>
-      <div>
+      <div class="ndform">
         <label for="name">Deck Name: </label>
         <br />
         <input type="text" name="name" v-model="deck.name" />
       </div>
-      <div>
+      <div class="ndform">
         <label for="subject">Deck Subject: </label>
         <br />
         <input type="text" name="subject" v-model="deck.subject" />
       </div>
-      <div>
+      <div class="ndform">
         <label for="description">Deck Description</label>
         <br />
         <textarea
@@ -32,7 +32,7 @@
   </div>
 </template>
 
-<script>
+<script >
 import CardService from "../services/CardService";
 import DeckCardList from "./DeckCardList.vue";
 export default {
@@ -83,17 +83,24 @@ export default {
 </script>
 
 <style>
+
 .new-deck-form {
-  margin-left: 300px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-content: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+}
+.ndform{
+  margin: auto;
+  text-align: center;
+  
 }
 
 .ndbutton {
-  margin-bottom: 5px;
+  margin:auto;;
   width: 150px;
 }
 </style>

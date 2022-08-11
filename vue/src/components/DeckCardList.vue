@@ -4,7 +4,7 @@
     <div id="filter-bar">
       <label for="filter-cards">Filter By Tags: </label>
       <br />
-      <input type="text" name="filter-cards" v-model="filter" />
+      <input class="filter-bar" type="text" name="filter-cards" v-model="filter" />
     </div>
     <div class="deck-cards-container">
       <deck-card
@@ -66,6 +66,11 @@ h1 {
 #filter-bar {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  margin-left: 300px;
+  margin:auto;
+  text-align: center;
+  font-size: 50px;
+}
+.filter-bar{
+  padding: 10px 50px 10px 50px;
 }
 </style>

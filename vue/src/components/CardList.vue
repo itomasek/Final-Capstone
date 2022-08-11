@@ -49,7 +49,7 @@ export default {
     },
   },
 };
-</script>
+</script >
 
 <style>
 .cards-container {
@@ -69,6 +69,7 @@ h1 {
 .title{
   font-size: 75px;
   text-decoration: underline;
+  
 }
 
 #filter-bar {
