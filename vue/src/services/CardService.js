@@ -21,6 +21,10 @@ export default {
     },
 
     getNumberOfCards(deckId) {
-        return axios.get(`/deck-cards/${deckId}`)
+        return axios.get(`/deck-cards/${deckId}`);
+    },
+
+    putCardsInDeck(cardId, deckId) {
+        return axios.post(`/cards/${cardId}/decks/${deckId}`);
     }
 }

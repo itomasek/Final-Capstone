@@ -48,4 +48,10 @@ public class CardController {
     public int getNumberOfCards(@PathVariable int deckId) {
         return cardDao.getNumberOfCards(deckId);
     }
+
+    @RequestMapping(path = "cards/{cardId}/decks/{deckId}", method = RequestMethod.POST)
+    public void putCardsInDeck(@PathVariable int cardId, @PathVariable int deckId) {
+        cardDao.putCardsInDeck(cardId, deckId);
+    }
+
 }

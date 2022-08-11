@@ -22,15 +22,21 @@
           v-model="deck.description"
         ></textarea>
       </div>
-      <button class="ndbutton" type="submit" v-on:click.prevent="saveDeck">Save New Deck</button>
+      <button class="ndbutton" type="submit" v-on:click.prevent="saveDeck">
+        Save New Deck
+      </button>
       <button class="ndbutton" v-on:click="cancelForm">Cancel</button>
     </form>
+    <hr />
+    <deck-card-list />
   </div>
 </template>
 
 <script>
 import CardService from "../services/CardService";
+import DeckCardList from "./DeckCardList.vue";
 export default {
+  components: { DeckCardList },
   name: "new-deck-form",
   data() {
     return {
@@ -41,6 +47,7 @@ export default {
         description: "",
         userId: this.$store.state.user.id,
       },
+      newDeckId: null,
     };
   },
   methods: {
@@ -54,6 +61,13 @@ export default {
             description: "",
             userId: this.$store.state.user.id,
           };
+          this.newDeckId = response.data;
+          if (this.$store.state.cardIdsToAdd.length > 0) {
+            this.$store.state.cardIdsToAdd.forEach((Id) => {
+              CardService.putCardsInDeck(Id, this.newDeckId);
+            });
+          }
+          this.$store.commit('CLEAR_CARD_IDS');
           this.$router.push({
             name: "my-decks",
             params: { user_id: this.deck.userId },
@@ -74,7 +88,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .ndbutton {

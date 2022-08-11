@@ -20,4 +20,6 @@ public interface CardDao {
     int createDeck(Deck deck);
 
     int getNumberOfCards(int deckId);
+
+    void putCardsInDeck(int deckId, int cardID);
 }

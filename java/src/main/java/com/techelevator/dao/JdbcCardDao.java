@@ -60,9 +60,9 @@ public class JdbcCardDao implements CardDao{
 
     @Override
     public int createDeck(Deck deck) {
-        String sql = "INSERT INTO deck (name, subject, description, user_id) VALUES (?, ?, ?, ?) RETURNING user_id";
-        int userId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getName(), deck.getSubject(), deck.getDescription(), deck.getUserId());
-        return userId;
+        String sql = "INSERT INTO deck (name, subject, description, user_id) VALUES (?, ?, ?, ?) RETURNING deck_id";
+        int deckId = jdbcTemplate.queryForObject(sql, Integer.class, deck.getName(), deck.getSubject(), deck.getDescription(), deck.getUserId());
+        return deckId;
     }
 
     @Override
@@ -70,6 +70,13 @@ public class JdbcCardDao implements CardDao{
         String sql = "SELECT COUNT(*) FROM card_deck WHERE deck_id = ?";
         int numberOfCards = jdbcTemplate.queryForObject(sql, Integer.class, deckId);
         return numberOfCards;
+    }
+
+    @Override
+    public void putCardsInDeck(int cardId, int deckId) {
+        String sql = "INSERT INTO card_deck (card_id, deck_id) VALUES (?, ?)";
+        jdbcTemplate.queryForObject(sql, Void.class, cardId, deckId);
+
     }
 
     private Deck mapRowToDeck(SqlRowSet rowSet) {
