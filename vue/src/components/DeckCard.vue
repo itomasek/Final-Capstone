@@ -12,7 +12,7 @@
           v-bind:id="card.cardId"
           v-bind:value="card.cardId"
           v-on:change="toggleDeckArray(card.cardId)"
-          v-model="idIsInStoreArray"
+          v-model="idInStore"
         />
       </div>
       <p class="author">{{ this.username }}</p>
@@ -37,15 +37,6 @@ export default {
     username() {
       return this.$store.state.user.username;
     },
-    idIsInStoreArray() {
-      let result;
-      if (this.$store.state.cardIdsToAdd.includes(this.card.cardId)) {
-        result = true;
-      } else {
-        result = false;
-      }
-      return result;
-    },
     determineCheckText() {
       return this.$store.state.cardIdsToAdd.includes(this.card.cardId)
         ? "Card Is In Deck"
@@ -55,11 +46,17 @@ export default {
   data() {
     return {
       showFront: true,
-      currentIds: []
+      currentIds: [],
+      idInStore: null
     };
   },
   created() {
     this.currentIds = this.$store.state.cardIdsToAdd;
+      if (this.$store.state.cardIdsToAdd.includes(this.card.cardId)) {
+        this.idInStore = true;
+      } else {
+        this.idInStore = false;
+      }
   },
 
   methods: {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="new-card-form" v-on:submit.prevent>
+    <form class="new-card-form">
       <h1>New Card Form</h1>
       <div>
         <label for="subject">Card Subject: </label>
@@ -76,6 +76,7 @@ export default {
       });
     },
     cancelForm() {
+      this.$store.commit("CLEAR_EDIT_CARD")
       this.$router.push({ name: "home" });
     },
   },

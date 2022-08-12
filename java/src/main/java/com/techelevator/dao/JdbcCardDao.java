@@ -48,6 +48,13 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
+    public int updateDeck(int deckId, Deck deck) {
+        String updateSql = "UPDATE deck SET name = ?, subject = ?, description = ?, user_id = ? WHERE deck_id = ?";
+        int rowsUpdated = jdbcTemplate.update(updateSql, deck.getName(), deck.getSubject(), deck.getDescription(), deck.getUserId(), deckId);
+        return rowsUpdated;
+    }
+
+    @Override
     public List<Deck> getDecks(int userId) {
         List<Deck> decks = new ArrayList<>();
         String getDeckSql = "SELECT * FROM deck WHERE user_id = ?";
@@ -75,7 +82,7 @@ public class JdbcCardDao implements CardDao{
     @Override
     public void putCardsInDeck(int cardId, int deckId) {
         String sql = "INSERT INTO card_deck (card_id, deck_id) VALUES (?, ?)";
-        jdbcTemplate.queryForObject(sql, Void.class, cardId, deckId);
+        jdbcTemplate.update(sql, cardId, deckId);
 
     }
 
@@ -104,9 +111,11 @@ public class JdbcCardDao implements CardDao{
     @Override
     public int clearCardDeck(int deckId) {
         String sql = "DELETE FROM card_deck WHERE deck_id = ?";
-        int numberOfRows = jdbcTemplate.update(sql, Integer.class, deckId);
-        return numberOfRows;
+        jdbcTemplate.update(sql, deckId);
+        return 0;
     }
+
+
 
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();

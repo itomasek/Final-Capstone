@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="edit-deck-form" v-on:submit.prevent>
+    <form class="edit-deck-form">
       <h1>Edit Deck Details</h1>
       <div>
         <label for="name">Deck Name: </label>
@@ -30,16 +30,15 @@
     <hr />
     <div id="card-container">
       <div id="cards-in-deck">
-        <h3>Cards Currently In This Deck: </h3>
+        <h3>Cards Currently In This Deck:</h3>
         <deck-card
           v-for="card in inCards"
           v-bind:key="card.cardId"
           v-bind:card="card"
-          v-bind:isActive="true"
         />
       </div>
       <div id="cards-not-in-deck">
-        <h3>Cards Not Currently In This Deck: </h3>
+        <h3>Cards Not Currently In This Deck:</h3>
         <deck-card
           v-for="card in outCards"
           v-bind:key="card.cardId"
@@ -67,11 +66,36 @@ export default {
       },
       inCards: [],
       outCards: [],
+      createResponse: "",
+      createError: "",
     };
   },
   methods: {
-    saveEdits() {},
+    saveEdits() {
+      console.log("current deck is:" + this.deck.deckId);
+      CardService.clearCardDeck(this.deck.deckId);
+      CardService.updateDeck(this.deck.deckId, this.deck);
+      if (this.$store.state.cardIdsToAdd.length > 0) {
+        this.$store.state.cardIdsToAdd.forEach((Id) => {
+          CardService.putCardsInDeck(Id, this.deck.deckId)
+            .then((response) => {
+              this.createResponse = response.statusText;
+            })
+            .catch((error) => {
+              this.createError = error.statusText;
+            });
+        });
+      }
+      this.$store.commit("CLEAR_CARD_IDS");
+      this.$router.push({
+        name: "my-decks",
+        params: { user_id: this.deck.userId },
+      });
+      this.$store.commit("CLEAR_EDIT_DECK");
+    },
     cancelForm() {
+      this.$store.commit("CLEAR_CARD_IDS");
+      this.$store.commit("CLEAR_EDIT_DECK");
       this.$router.push({
         name: "my-decks",
         params: { user_id: this.deck.userId },
@@ -82,13 +106,17 @@ export default {
     this.deck = this.$store.state.activeEditDeck;
     CardService.getCardsByDeckId(this.deck.deckId).then((response) => {
       this.inCards = response.data;
+      this.inCards.forEach((card) => {
+        this.$store.commit("ADD_CARD_ID", card.cardId);
+        console.log(this.inCards.length);
+      });
     });
     CardService.getExcludedCards(this.deck.deckId).then((response) => {
       this.outCards = response.data;
     });
-    this.inCards.forEach((card) => {
-      this.$store.commit("ADD_CARD_ID", card.cardId);
-    });
+  },
+  mounted() {
+    console.log("Deck Detail Mounted");
   },
 };
 </script>

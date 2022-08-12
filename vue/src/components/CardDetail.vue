@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form class="new-card-form" v-on:submit.prevent>
+    <form class="new-card-form">
       <h1>Edit Card</h1>
       <div>
         <label for="subject">Card Subject: </label>

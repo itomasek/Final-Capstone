@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 public class CardController {
 
     private CardDao cardDao;
@@ -32,6 +32,11 @@ public class CardController {
     @RequestMapping(path = "/card/{cardId}", method = RequestMethod.PUT)
     public int updateCard(@PathVariable int cardId, @RequestBody Card card) {
         return cardDao.updateCard(cardId, card);
+    }
+
+    @RequestMapping(path = "/deck/{deckId}", method = RequestMethod.PUT)
+    public int updateDeck(@PathVariable int deckId, @RequestBody Deck deck) {
+        return cardDao.updateDeck(deckId, deck);
     }
 
     @RequestMapping(path = "/decks/{userId}", method = RequestMethod.GET)

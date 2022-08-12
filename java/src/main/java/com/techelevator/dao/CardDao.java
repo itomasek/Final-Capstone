@@ -28,4 +28,6 @@ public interface CardDao {
     List<Card> getExcludedCards(int deckId);
 
     int clearCardDeck(int deckId);
+
+    int updateDeck(int deckId, Deck deck);
 }

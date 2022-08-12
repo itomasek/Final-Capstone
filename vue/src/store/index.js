@@ -88,6 +88,16 @@ export default new Vuex.Store({
     SET_EDIT_CARD(state, card) {
       state.activeEditCard = card;
     },
+    CLEAR_EDIT_CARD(state) {
+      state.activeEditCard = {
+        cardId: null,
+        subject: "",
+        question: "",
+        tags: "",
+        answer: "",
+        userId: "",
+      };
+    },
     ADD_CARD_ID(state, cardId) {
       state.cardIdsToAdd.push(cardId);
     },
@@ -99,6 +109,15 @@ export default new Vuex.Store({
     },
     SET_EDIT_DECK(state, deck) {
       state.activeEditDeck = deck;
+    },
+    CLEAR_EDIT_DECK(state) {
+      state.activeEditDeck = {
+        deckId: null,
+        name: "",
+        subject: "",
+        description: "",
+        userId: ""
+      }
     }
   }
 })
