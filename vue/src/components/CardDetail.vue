@@ -85,7 +85,7 @@ export default {
 .editcard {
   margin: 5px auto;
   width: 150px;
-  background-color: #deebf3;
+  
   border-radius: 5px;
 }
 textarea{

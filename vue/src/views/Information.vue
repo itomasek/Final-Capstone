@@ -62,11 +62,13 @@ export default {
 .about{
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
+  
 }
 .name{
   margin-bottom: 20px;
   padding: 20px;
   border: solid 1px #555;
+  /* background-color: #c9e3da ; */
 }
 .nheader{
   text-decoration: underline;

@@ -99,6 +99,7 @@ export default {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
+  
 }
 .ndform {
   margin: auto;
@@ -108,7 +109,7 @@ export default {
 .ndbutton {
   width: 150px;
   margin:5px auto;
-  background-color: #deebf3;
+  
   border-radius: 5px;
 }
 </style>

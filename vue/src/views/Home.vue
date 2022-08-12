@@ -54,7 +54,6 @@ export default {
 
 <style>
 .home {
-  background-color: #f6fbff;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
