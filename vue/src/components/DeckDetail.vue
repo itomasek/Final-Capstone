@@ -22,10 +22,11 @@
           v-model.trim="deck.description"
         ></textarea>
       </div>
-      <button class="edit-button" type="submit" v-on:click.prevent="saveEdits">
+      <button class="edit-deck" id="edbutton" type="submit" v-on:click.prevent="saveEdits">
         Save Changes
       </button>
-      <button class="cancel-edit-button" v-on:click="cancelForm">Cancel</button>
+      <br>
+      <button class="cancel-edit-deck" id="edbutton" v-on:click="cancelForm">Cancel</button>
     </form>
     <hr />
     <div id="card-container">
@@ -122,10 +123,15 @@ export default {
 </script>
 
 <style scoped>
+.edit-deck-form{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
 #card-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "in out";
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #cards-in-deck {
@@ -134,6 +140,8 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #cards-not-in-deck {
@@ -142,5 +150,22 @@ export default {
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.edit-deck{
+  margin: 5px auto;
+  width: 150px;
+  background-color: #deebf3;
+  border-radius: 5px;
+}
+.cancel-edit-deck{
+  margin: 5px auto;
+  width: 150px;
+  background-color: #deebf3;
+  border-radius: 5px;
+}
+textarea{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 </style>

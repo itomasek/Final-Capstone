@@ -4,7 +4,7 @@
       <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
       <h2 class="question">Question: {{ card.question }}</h2>
-      <button class="edit" v-on:click="editCard">Edit</button>
+      <button class="edit"  v-if="card.cardId <500" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>
@@ -12,7 +12,7 @@
       <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
       <h2 class="answer">Answer: {{ card.answer }}</h2>
-      <button class="edit" v-on:click="editCard">Edit</button>
+      <button class="edit"  v-if="card.cardId <500" v-on:click="editCard">Edit</button>
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>

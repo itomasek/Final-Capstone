@@ -4,7 +4,12 @@
     <div id="filter-bar">
       <label for="filter-cards">Search By Tags: </label>
       <br />
-      <input class="filter-bar" type="text" name="filter-cards" v-model="filter" />
+      <input
+        class="filter-bar"
+        type="text"
+        name="filter-cards"
+        v-model="filter"
+      />
     </div>
     <div class="cards-container">
       <card
@@ -56,31 +61,28 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
-  
 }
 
 h1 {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
-  
 }
-.title{
+.title {
   font-size: 75px;
   text-decoration: underline;
-  
 }
 
 #filter-bar {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  margin:auto;
+  margin: auto;
   text-align: center;
   font-size: 50px;
-
+  
 }
-.filter-bar{
+.filter-bar {
   padding: 10px 50px 10px 50px;
+  border-radius: 5px;
 }
 </style>

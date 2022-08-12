@@ -106,7 +106,9 @@ export default {
 }
 
 .ndbutton {
-  margin: auto;
   width: 150px;
+  margin:5px auto;
+  background-color: #deebf3;
+  border-radius: 5px;
 }
 </style>

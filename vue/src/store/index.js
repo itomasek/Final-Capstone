@@ -22,7 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     exampleCards: [
       {
-        cardId: 13,
+        cardId: 997,
         subject: 'History',
         question: 'List in order the first five presidents of the USA.',
         tags: 'Presidents, History, Government',
@@ -32,7 +32,7 @@ export default new Vuex.Store({
 
       },
       {
-        cardId: 14,
+        cardId: 998,
         subject: 'Language',
         question: 'How do you say "Hello" in Spanish, French, and German',
         tags: 'Languages, Culture',
@@ -41,7 +41,7 @@ export default new Vuex.Store({
         userId: 2
       },
       {
-        cardId: 15,
+        cardId: 999,
         subject: 'Science',
         question: 'What are the elements that comprise water? BONUS: give the molecular structure!',
         tags: 'Chemistry, Molecules, Science',

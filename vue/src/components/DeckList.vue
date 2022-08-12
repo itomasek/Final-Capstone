@@ -37,7 +37,7 @@ export default {
     CardService.listDecks(2).then((response) => {
       this.exampleDecks = response.data;
     });
-  }
+  },
 };
 </script>
 
@@ -46,6 +46,8 @@ p,
 h2,
 h1 {
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .deck-container {

@@ -3,7 +3,7 @@
 <h1 class="aboutus">About Us</h1>
   <div class="about">
       <div class="name">
-        <img src="../../assets/notebook.png" alt="notebook">
+        <img src="../../assets/preston.png" alt="notebook">
         <h3 class="nheader">Preston Masters</h3>
         <div class="description">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
@@ -29,20 +29,14 @@
         </div>
       </div>
       <div class="name">
-        <img src="../../assets/notebook.png" alt="notebook">
+        <img src="../../assets/Kevin.png" alt="notebook">
         <h3 class="nheader">Kevin Meindl</h3>
         <div class="description">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-        perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa similique qui illum
-        corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-        perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa similique qui illum
-        corporis.Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-        perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa similique qui illum
-        corporis.</p>
+        <p>I have many years of experience training numerous team members. As </p>
         </div>
       </div>
       <div class="name">
-        <img src="../../assets/notebook.png" alt="notebook">
+        <img src="../../assets/isabella.png" alt="notebook">
         <h3 class="nheader">Isabella Tomasek</h3>
         <div class="description">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
@@ -100,8 +94,8 @@ div.name:nth-child(1)>div.description{
   order: 2;
 }
 .about img{
-  width: 75px;
-  height: 75px;
+  width: 125px;
+  height: 125px;
   border-radius: 999px;
   margin: 0 10px;
 }
@@ -115,6 +109,7 @@ div.name:nth-child(1)>div.description{
 .description>p{
   text-align:left;
 }
+
 
 
 

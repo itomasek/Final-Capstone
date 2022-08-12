@@ -94,9 +94,11 @@ export default {
 }
 
 .ncbutton {
-  margin-bottom: 5px;
+  
   width: 150px;
-  margin:auto;
+  margin:5px auto;
+  background-color: #deebf3;
+  border-radius: 5px;
 
 }
 </style>

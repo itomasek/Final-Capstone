@@ -12,6 +12,7 @@ import AllDecks from '../views/AllDecks.vue'
 import NewDeck from '../views/NewDeck.vue'
 import EditDeck from '../views/EditDeck.vue'
 import Information from '../views/Information.vue'
+import DefaultHome from '../views/DefaultHome.vue'
 
 Vue.use(Router)
 
@@ -109,11 +110,20 @@ const router = new Router({
       }
     },
     {
-      path: "/info",
+      path: "/aboutus",
       name: "info",
       component: Information,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path:"/home",
+      name: "default-home",
+      component: DefaultHome,
+      meta:{
+        requiresAuth: false
+
       }
     }
   ]
@@ -125,7 +135,7 @@ router.beforeEach((to, from, next) => {
 
   // If it does and they are not logged in, send the user to "/login"
   if (requiresAuth && store.state.token === '') {
-    next("/login");
+    next("/home");
   } else {
     // Else let them go to their next destination
     next();
