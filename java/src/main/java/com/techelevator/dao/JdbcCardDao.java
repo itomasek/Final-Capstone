@@ -20,7 +20,7 @@ public class JdbcCardDao implements CardDao{
     @Override
     public List<Card> getCards(int userId) {
         List<Card> cards = new ArrayList<>();
-        String getCardSql = "SELECT * FROM card WHERE user_id = ?";
+        String getCardSql = "SELECT * FROM card WHERE user_id = ? ORDER BY card_id DESC";
         SqlRowSet results = jdbcTemplate.queryForRowSet(getCardSql, userId);
         while (results.next()) {
             Card card = mapRowToCard(results);

@@ -32,11 +32,6 @@ export default {
       this.numberOfCards = response.data;
     });
   },
-  updated() {
-    CardService.getNumberOfCards(this.deck.deckId).then((response) => {
-      this.numberOfCards = response.data;
-    });
-  },
   methods: {
     editDeck() {
       this.$store.commit("SET_EDIT_DECK", this.deck);

@@ -10,6 +10,7 @@
           type="checkbox"
           name="AddToDeck"
           v-bind:id="card.cardId"
+          v-bind:value="card.cardId"
           v-on:change="toggleDeckArray(card.cardId)"
           v-model="idIsInStoreArray"
         />
@@ -31,7 +32,7 @@
 <script>
 export default {
   name: "deck-card",
-  props: ["card"],
+  props: ["card", "isActive"],
   computed: {
     username() {
       return this.$store.state.user.username;
@@ -54,7 +55,11 @@ export default {
   data() {
     return {
       showFront: true,
+      currentIds: []
     };
+  },
+  created() {
+    this.currentIds = this.$store.state.cardIdsToAdd;
   },
 
   methods: {

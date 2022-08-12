@@ -35,6 +35,7 @@
           v-for="card in inCards"
           v-bind:key="card.cardId"
           v-bind:card="card"
+          v-bind:isActive="true"
         />
       </div>
       <div id="cards-not-in-deck">
@@ -78,18 +79,6 @@ export default {
     },
   },
   created() {
-    this.deck = this.$store.state.activeEditDeck;
-    CardService.getCardsByDeckId(this.deck.deckId).then((response) => {
-      this.inCards = response.data;
-    });
-    CardService.getExcludedCards(this.deck.deckId).then((response) => {
-      this.outCards = response.data;
-    });
-    this.inCards.forEach((card) => {
-      this.$store.commit("ADD_CARD_ID", card.cardId);
-    });
-  },
-  updated() {
     this.deck = this.$store.state.activeEditDeck;
     CardService.getCardsByDeckId(this.deck.deckId).then((response) => {
       this.inCards = response.data;
