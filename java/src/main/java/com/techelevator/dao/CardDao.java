@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
+import com.techelevator.model.UserSession;
 
 import java.util.List;
 
@@ -25,9 +26,11 @@ public interface CardDao {
 
     List<Card> getCardsByDeckId(int deckId);
 
-    List<Card> getExcludedCards(int deckId);
+    List<Card> getExcludedCards(int userId, int deckId);
 
     int clearCardDeck(int deckId);
 
     int updateDeck(int deckId, Deck deck);
+
+    int saveSession(UserSession session);
 }

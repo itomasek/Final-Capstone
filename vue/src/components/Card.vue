@@ -116,6 +116,7 @@ export default {
   border-radius: 10px;
   width: 75px;
   height: 50px;
+  font-weight: 700;
 }
 
 .answer {

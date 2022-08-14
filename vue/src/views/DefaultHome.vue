@@ -7,7 +7,6 @@
         Check out these example cards! The answers can be viewed by pressing
         'Flip'.
       </p>
-     
     </div>
     <hr />
     <div id="filter-bar">
@@ -20,7 +19,13 @@
         v-model="filter"
       />
     </div>
-     <div id="default-session"><button id="ssbutton">Try a study session</button></div>
+
+    <div id="default-session">
+      <router-link v-bind:to="{ name: 'study-session' }">
+        <button id="ssbutton">Try a study session</button>
+      </router-link>
+    </div>
+
     <div class="example-container">
       <card
         v-for="card in filteredCards"
@@ -28,8 +33,6 @@
         v-bind:card="card"
       />
     </div>
-    
-    
   </div>
 </template>
 
@@ -38,7 +41,7 @@ import Card from "../components/Card.vue";
 export default {
   components: { Card },
   name: "default-home",
-   data() {
+  data() {
     return {
       cards: [],
       filter: "",
@@ -54,7 +57,6 @@ export default {
       });
     },
   },
-
 };
 </script>
 
@@ -63,36 +65,31 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  
 }
 
 .main-container {
   text-align: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  ;
 }
-#study-session{
-  margin:auto;
+#study-session {
+  margin: auto;
 }
-#ssbutton{
-  
+#ssbutton {
   border-radius: 10px;
   width: 175px;
   height: 50px;
-  align-items:center;
+  align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   background-color: #deebf3;
   border-radius: 10px;
   font-size: 20px;
   font-weight: bold;
-  
-  
 }
-#default-session{
+#default-session {
   display: flex;
   justify-content: space-around;
-  margin-top:10px;
+  margin-top: 10px;
 }
 </style>

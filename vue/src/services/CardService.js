@@ -36,11 +36,15 @@ export default {
         return axios.get(`/cards-in/${deckId}`);
     },
 
-    getExcludedCards(deckId) {
-        return axios.get(`/cards-out/${deckId}`);
+    getExcludedCards(userId, deckId) {
+        return axios.get(`/cards-out/${userId}/${deckId}`);
     },
 
     clearCardDeck(deckId) {
         return axios.delete(`/clear-card-deck/${deckId}`);
+    },
+
+    saveSession(session) {
+        return axios.post(`/save-session`, session);
     }
 }

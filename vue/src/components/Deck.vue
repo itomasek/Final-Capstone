@@ -5,7 +5,10 @@
       <h4 class="deck-subject">{{ deck.subject }}</h4>
       <br />
       <p class="deck-description">{{ deck.description }}</p>
-      <button class="edit-button" v-on:click="editDeck">Edit Deck</button>
+      <div class="study-edit">
+        <button class="edit-button" v-on:click="editDeck">Edit Deck</button>
+        <button class="study-button" v-on:click="goStudy" v-show="showStudy">Study This Deck</button>
+      </div>
       <h6 class="number-of-cards">Number Of Cards: {{ numberOfCards }}</h6>
     </div>
   </div>
@@ -26,6 +29,9 @@ export default {
     username() {
       return this.$store.state.user.username;
     },
+    showStudy() {
+      return (this.numberOfCards > 0) ? true : false;
+    }
   },
   created() {
     CardService.getNumberOfCards(this.deck.deckId).then((response) => {
@@ -40,6 +46,11 @@ export default {
         params: { deck_id: this.deck.deckId },
       });
     },
+    goStudy() {
+      this.$store.commit('SET_ACTIVE_DECK', this.deck.deckId);
+      this.$store.commit('SET_ACTIVE_DECK_NAME', this.deck.name);
+      this.$router.push({name: 'study-session'});
+    }
   },
 };
 </script>
@@ -80,10 +91,22 @@ export default {
   grid-area: number;
 }
 
-.edit-button {
+.study-edit {
   grid-area: edit;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit-button {
   border-radius: 10px;
   width: 125px;
   height: 50px;
+}
+
+.study-button {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin-top: 15px;
 }
 </style>

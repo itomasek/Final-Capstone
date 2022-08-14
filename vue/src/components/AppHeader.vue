@@ -38,7 +38,7 @@
       >
     </div>
     <div v-if="$store.state.token != ''">
-      <button class="header">Study Session</button>
+      <button class="header" v-on:click="doStudy">Study Session</button>
     </div>
     <div class="rlbuttons">
       <div v-if="$store.state.token == ''">
@@ -46,7 +46,6 @@
           ><button class="register">Register</button></router-link
         >
       </div>
-      
 
       <div id="logout-button" v-if="$store.state.token != ''">
         <router-link v-bind:to="{ name: 'logout' }"
@@ -63,10 +62,16 @@
 </template>
 
 <script>
-
 export default {
   name: "app-header",
-  
+  methods: {
+    doStudy() {
+      this.$router.push({
+        name: "my-decks",
+        params: { user_id: this.$store.state.user.id },
+      });
+    },
+  },
 };
 </script>
 
@@ -119,12 +124,10 @@ export default {
   margin-left: 15px;
   width: 125px;
 }
-#rlbuttons{
-  display:flex;
- 
-  
+#rlbuttons {
+  display: flex;
 }
-.register{
+.register {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   padding: 20px;
@@ -134,6 +137,6 @@ export default {
   font-weight: bold;
   margin-left: 15px;
   margin-bottom: 30px;
-  width:125px;
+  width: 125px;
 }
 </style>

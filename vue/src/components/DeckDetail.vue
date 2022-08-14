@@ -112,12 +112,9 @@ export default {
         console.log(this.inCards.length);
       });
     });
-    CardService.getExcludedCards(this.deck.deckId).then((response) => {
+    CardService.getExcludedCards(this.deck.userId, this.deck.deckId).then((response) => {
       this.outCards = response.data;
     });
-  },
-  mounted() {
-    console.log("Deck Detail Mounted");
   },
 };
 </script>

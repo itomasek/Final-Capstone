@@ -1,18 +1,13 @@
 <template>
   <div>
     <h1>Your Decks:</h1>
+    <h4 class="decks-subline">
+      Select A Deck To Edit Or Begin A Study Session
+    </h4>
+    <hr />
     <p v-if="this.decks.length == 0">You Don't Have Any Decks Yet!</p>
     <div class="deck-container">
       <deck v-for="deck in decks" v-bind:key="deck.deckId" v-bind:deck="deck" />
-    </div>
-    <hr />
-    <h2>Example Decks:</h2>
-    <div class="example-deck-container">
-      <deck
-        v-for="deck in exampleDecks"
-        v-bind:key="deck.deckId"
-        v-bind:deck="deck"
-      />
     </div>
   </div>
 </template>
@@ -62,5 +57,11 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
   margin: auto;
+}
+
+.decks-subline {
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 </style>

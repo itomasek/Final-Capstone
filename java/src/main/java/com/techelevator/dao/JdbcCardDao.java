@@ -2,6 +2,8 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
+import com.techelevator.model.UserSession;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -55,6 +57,13 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
+    public int saveSession(UserSession session) {
+        String sql = "INSERT INTO user_session (deck_studied, total_cards, total_correct, total_incorrect, user_id) VALUES (?, ?, ?, ?, ?) RETURNING session_id";
+        int sessionId = jdbcTemplate.queryForObject(sql, Integer.class, session.getDeckStudied(), session.getTotalCards(), session.getTotalCorrect(), session.getTotalIncorrect(), session.getUserId());
+        return sessionId;
+    }
+
+    @Override
     public List<Deck> getDecks(int userId) {
         List<Deck> decks = new ArrayList<>();
         String getDeckSql = "SELECT * FROM deck WHERE user_id = ?";
@@ -98,10 +107,13 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
-    public List<Card> getExcludedCards(int deckId) {
+    public List<Card> getExcludedCards(int userId, int deckId) {
         List<Card> cards = new ArrayList<>();
-        String sql = "SELECT * FROM card JOIN card_deck ON card.card_id = card_deck.card_id WHERE deck_id != ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deckId);
+        String sql = "SELECT c.card_id, c.subject, c.question, c.tags, c.answer, c.user_id, cd.deck_id\n" +
+                "FROM card AS c\n" +
+                "LEFT JOIN card_deck AS cd ON cd.card_id = c.card_id\n" +
+                "WHERE c.user_id = ? and cd.deck_id != ? OR cd.deck_id IS NULL;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId, deckId);
         while (results.next()) {
             cards.add(mapRowToCard(results));
         }

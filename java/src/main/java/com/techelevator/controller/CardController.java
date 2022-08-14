@@ -4,6 +4,7 @@ import com.techelevator.dao.CardDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Card;
 import com.techelevator.model.Deck;
+import com.techelevator.model.UserSession;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,14 +65,19 @@ public class CardController {
         return cardDao.getCardsByDeckId(deckId);
     }
 
-    @RequestMapping(path = "/cards-out/{deckId}", method = RequestMethod.GET)
-    public List<Card> getExcludedCards(@PathVariable int deckId) {
-        return cardDao.getExcludedCards(deckId);
+    @RequestMapping(path = "/cards-out/{userId}/{deckId}", method = RequestMethod.GET)
+    public List<Card> getExcludedCards(@PathVariable int userId, @PathVariable int deckId) {
+        return cardDao.getExcludedCards(userId, deckId);
     }
 
     @RequestMapping(path = "/clear-card-deck/{deckId}", method = RequestMethod.DELETE)
     public int clearCardDeck(@PathVariable int deckId) {
         return cardDao.clearCardDeck(deckId);
+    }
+
+    @RequestMapping(path = "/save-session", method = RequestMethod.POST)
+    public int saveSession(@RequestBody UserSession session) {
+        return cardDao.saveSession(session);
     }
 
 }

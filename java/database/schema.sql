@@ -42,5 +42,16 @@ CREATE TABLE card_deck (
     CONSTRAINT FK_car_deck_deck FOREIGN KEY (deck_id) REFERENCES deck (deck_id)
 );
 
+CREATE TABLE user_session (
+    session_id SERIAL,
+    deck_studied varchar(50) NOT NULL,
+    total_cards int NOT NULL,
+    total_correct int NOT NULL,
+    total_incorrect int NOT NULL,
+    user_id int NOT NULL,
+    CONSTRAINT PK_user_session PRIMARY KEY (session_id),
+    CONSTRAINT FK_user FOREIGN KEY (user_id) REFERENCES users (user_id)
+);
+
 
 COMMIT TRANSACTION;

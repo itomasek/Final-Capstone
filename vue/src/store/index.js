@@ -22,13 +22,13 @@ export default new Vuex.Store({
     user: currentUser || {},
     exampleCards: [
       {
-        cardId: 997,
+        cardId: 999,
         subject: 'History',
         question: 'List in order the first five presidents of the USA.',
         tags: 'Presidents, History, Government',
         answer: 'Washington, Adams, Jefferson, Madison, Monroe',
         username: 'ExampleUser',
-        userId: 2
+        userId: 2,
 
       },
       {
@@ -38,18 +38,80 @@ export default new Vuex.Store({
         tags: 'Languages, Culture',
         answer: 'Hola! Bonjour! Guten Tag!',
         username: 'ExampleUser',
-        userId: 2
+        userId: 2,
       },
       {
-        cardId: 999,
+        cardId: 997,
         subject: 'Science',
         question: 'What are the elements that comprise water? BONUS: give the molecular structure!',
         tags: 'Chemistry, Molecules, Science',
         answer: 'Hydrogen and Oxygen: H2O',
         username: 'ExampleUser',
-        userId: 2
-
+        userId: 2,
       },
+      {
+        cardId: 996,
+        subject: 'Music',
+        question: 'How many keys are there on a standard Grand Piano?',
+        tags: 'Instruments, Music',
+        answer: '88 Keys',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 995,
+        subject: 'Music',
+        question: 'What famous march written by the English composer Edward Elgar is commonly played at graduation ceremonies?',
+        tags: 'English Music, History, Fun-Facts',
+        answer: 'Pomp And Circumstance',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 994,
+        subject: 'American History',
+        question: 'When was the first U.S. dollar printed?',
+        tags: 'History, Currency, Dates',
+        answer: '1862',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 993,
+        subject: 'American History',
+        question: 'What was the first United States national monument?',
+        tags: 'History, Monuments, Geography',
+        answer: 'Devil’s Tower in Wyoming',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 992,
+        subject: 'American History',
+        question: 'What was the date of the Black Tuesday stock market crash?',
+        tags: 'History, Money',
+        answer: 'October 24th, 1929',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 991,
+        subject: 'Music',
+        question: 'Who is the Italian composer of the operas Macbeth, La Traviata, and Falstaff?',
+        tags: 'Opera, History, Theatre',
+        answer: 'Giuseppe Verdi',
+        username: 'ExampleUser',
+        userId: 2,
+      },
+      {
+        cardId: 990,
+        subject: 'Science',
+        question: 'What defines the identity of an element?',
+        tags: 'Science, Elements, Chemistry',
+        answer: 'The number of protons',
+        username: 'ExampleUser',
+        userId: 2,
+      }
     ],
     activeEditCard: {
       cardId: null,
@@ -66,7 +128,10 @@ export default new Vuex.Store({
       subject: "",
       description: "",
       userId: ""
-    }
+    },
+    studySession: false,
+    activeDeck: 0,
+    activeDeckName: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -118,6 +183,21 @@ export default new Vuex.Store({
         description: "",
         userId: ""
       }
+    },
+    TOGGLE_SESSION(state) {
+      state.studySession = !state.studySession;
+    },
+    SET_ACTIVE_DECK(state, deckId) {
+      state.activeDeck = deckId;
+    },
+    CLEAR_ACTIVE_DECK(state) {
+      state.activeDeck = 0;
+    },
+    SET_ACTIVE_DECK_NAME(state, name) {
+      state.activeDeckName = name;
+    },
+    CLEAR_DECK_NAME(state) {
+      state.activeDeckName = "";
     }
   }
 })
