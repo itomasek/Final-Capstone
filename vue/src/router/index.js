@@ -14,6 +14,7 @@ import EditDeck from '../views/EditDeck.vue'
 import Information from '../views/Information.vue'
 import DefaultHome from '../views/DefaultHome.vue'
 import StudySession from '../views/StudySession.vue'
+import SessionSummary from '../views/SessionSummary.vue'
 
 Vue.use(Router)
 
@@ -133,6 +134,14 @@ const router = new Router({
       component: StudySession,
       meta: {
         requiresAuth: false
+      }
+    },
+    {
+      path: "/session-summary",
+      name: "session-summary",
+      component: SessionSummary,
+      meta: {
+        requiresAuth: true
       }
     }
   ]

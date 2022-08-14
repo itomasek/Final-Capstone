@@ -49,6 +49,7 @@ export default {
     goStudy() {
       this.$store.commit('SET_ACTIVE_DECK', this.deck.deckId);
       this.$store.commit('SET_ACTIVE_DECK_NAME', this.deck.name);
+      this.$store.commit('TOGGLE_SESSION');
       this.$router.push({name: 'study-session'});
     }
   },

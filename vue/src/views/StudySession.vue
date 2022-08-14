@@ -13,7 +13,7 @@
         <button class="RES-button" v-on:click="reset">
           Restart This Session</button
         ><button class="RES-button" v-on:click="exit">Exit Study Session</button
-        ><button class="RES-button" v-on:click="saveResults">Save These Results</button>
+        ><button class="RES-button" v-on:click="saveResults" v-show="$store.state.token != ''">Save These Results</button>
       </div>
     </div>
     <div class="main-container" v-show="totalAnswers < studyCards.length">
@@ -76,6 +76,9 @@ export default {
       );
     }
   },
+  destroyed() {
+    this.$store.commit('TOGGLE_SESSION')
+  },
   computed: {
     totalCards() {
       return this.studyCards.length;
@@ -85,6 +88,7 @@ export default {
     },
     session() {
       return {
+        sessionId: null,
         deckStudied: this.$store.state.activeDeckName,
         totalCards: this.totalCards,
         totalCorrect: this.correctCount,
@@ -114,7 +118,7 @@ export default {
       CardService.saveSession(this.session);
       this.$store.commit('CLEAR_ACTIVE_DECK');
       this.$store.commit('CLEAR_DECK_NAME');
-      this.$router.push('/');
+      this.$router.push({name: 'session-summary'});
     }
   },
 };

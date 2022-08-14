@@ -46,5 +46,9 @@ export default {
 
     saveSession(session) {
         return axios.post(`/save-session`, session);
+    },
+
+    getSessions(userId) {
+        return axios.get(`/my-sessions/${userId}`);
     }
 }

@@ -38,7 +38,7 @@
       >
     </div>
     <div v-if="$store.state.token != ''">
-      <button class="header" v-on:click="doStudy">Study Session</button>
+      <button class="header" v-on:click="doStudy">Study Sessions</button>
     </div>
     <div class="rlbuttons">
       <div v-if="$store.state.token == ''">
@@ -67,8 +67,7 @@ export default {
   methods: {
     doStudy() {
       this.$router.push({
-        name: "my-decks",
-        params: { user_id: this.$store.state.user.id },
+        name: "session-summary",
       });
     },
   },

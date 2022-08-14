@@ -2,6 +2,7 @@ package com.techelevator.model;
 
 public class UserSession {
 
+    private int sessionId;
     private String deckStudied;
     private int totalCards;
     private int totalCorrect;
@@ -10,12 +11,21 @@ public class UserSession {
 
     public UserSession() {}
 
-    public UserSession(String deckStudied, int totalCards, int totalCorrect, int totalIncorrect, int user_id) {
+    public UserSession(int sessionId, String deckStudied, int totalCards, int totalCorrect, int totalIncorrect, int userId) {
+        this.sessionId = sessionId;
         this.deckStudied = deckStudied;
         this.totalCards = totalCards;
         this.totalCorrect = totalCorrect;
         this.totalIncorrect = totalIncorrect;
-        this.userId = user_id;
+        this.userId = userId;
+    }
+
+    public int getSessionId() {
+        return sessionId;
+    }
+
+    public void setSessionId(int sessionId) {
+        this.sessionId = sessionId;
     }
 
     public String getDeckStudied() {

@@ -33,4 +33,6 @@ public interface CardDao {
     int updateDeck(int deckId, Deck deck);
 
     int saveSession(UserSession session);
+
+    List<UserSession> getSessions(int userId);
 }

@@ -80,4 +80,9 @@ public class CardController {
         return cardDao.saveSession(session);
     }
 
+    @RequestMapping(path = "/my-sessions/{userId}", method = RequestMethod.GET)
+    public List<UserSession> getSessions(@PathVariable int userId) {
+        return cardDao.getSessions(userId);
+    }
+
 }

@@ -32,6 +32,17 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
+    public List<UserSession> getSessions(int userId) {
+        List<UserSession> sessions = new ArrayList<>();
+        String sql = "SELECT * FROM user_session WHERE user_id = ? ORDER BY session_id DESC";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()) {
+            sessions.add(mapRowToSession(results));
+        }
+        return sessions;
+    }
+
+    @Override
     public Card getCardById(int cardId) {
         return null;
     }
@@ -129,6 +140,8 @@ public class JdbcCardDao implements CardDao{
 
 
 
+
+
     private Deck mapRowToDeck(SqlRowSet rowSet) {
         Deck deck = new Deck();
         deck.setDeckId(rowSet.getInt("deck_id"));
@@ -148,5 +161,16 @@ public class JdbcCardDao implements CardDao{
         card.setAnswer(rowSet.getString("answer"));
         card.setUserId(rowSet.getInt("user_id"));
         return card;
+    }
+
+    private UserSession mapRowToSession(SqlRowSet rowSet) {
+        UserSession session = new UserSession();
+        session.setSessionId(rowSet.getInt("session_id"));
+        session.setDeckStudied(rowSet.getString("deck_studied"));
+        session.setTotalCards(rowSet.getInt("total_cards"));
+        session.setTotalCorrect(rowSet.getInt("total_correct"));
+        session.setTotalIncorrect(rowSet.getInt("total_incorrect"));
+        session.setUserId(rowSet.getInt("user_id"));
+        return session;
     }
 }
