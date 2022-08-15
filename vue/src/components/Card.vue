@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="front" v-if="showFront">
+    <div id="front-card" v-if="showFront">
       <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
       <h2 class="question">Question: {{ card.question }}</h2>
@@ -8,7 +8,7 @@
       <p class="author">{{ this.username }}</p>
       <button class="flip" v-on:click="showFront = !showFront">Flip</button>
     </div>
-    <div id="back" v-else>
+    <div id="back-card" v-else>
       <h3 class="subject">{{ card.subject }}</h3>
       <p class="tags">{{ card.tags }}</p>
       <h2 class="answer">Answer: {{ card.answer }}</h2>
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style>
-#front {
+#front-card {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   display: grid;
@@ -66,18 +66,18 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #8ab4a7;
+  
   width: 400px;
   height: 300px;
-  /* background-image: url("../../assets/card-background.png");
+  background-image: url("../../assets/Question.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #000;  */
   font-weight: bold;
-  
+  background-blend-mode: color-burn;
+ 
 }
 
-#back {
+#back-card {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   display: grid;
@@ -91,9 +91,12 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #dbf0e9;
   width: 400px;
   height: 300px;
+  background-image: url('../../assets/check-mark.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode:multiply;
 }
 
 .subject {

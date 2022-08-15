@@ -34,7 +34,7 @@ export default new Vuex.Store({
       {
         cardId: 998,
         subject: 'Language',
-        question: 'How do you say "Hello" in Spanish, French, and German',
+        question: 'How do you say "Hello" in Spanish, French, and German?',
         tags: 'Languages, Culture',
         answer: 'Hola! Bonjour! Guten Tag!',
         username: 'ExampleUser',

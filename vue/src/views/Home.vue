@@ -12,6 +12,7 @@
       <label for="filter-cards">Search By Tags: </label>
       <br />
       <input
+        placeholder="Ex: History, Culture, Music"
         class="filter-bar"
         type="text"
         name="filter-cards"

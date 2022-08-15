@@ -33,8 +33,8 @@
       /> <br>
 
       <button class="sign-in" type="submit">Sign in</button>
-      <h5>Need An Account?</h5>
-      <router-link :to="{ name: 'register' }">Register Now!</router-link>
+      <h5 class="need-account">Need An Account?</h5>
+      <router-link class="to-register" :to="{ name: 'register' }">Register Now!</router-link>
     </form>
   </div>
 </template>
@@ -84,7 +84,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-content: center;
-
+  
   margin-left: 300px;
   margin-right: 250px;
 }
@@ -92,10 +92,15 @@ export default {
 .sign-in {
   margin:auto;
   width: 150px;
+  
 }
 
 .form-control {
   width: 30%;
   
 }
+
+
+
+
 </style>

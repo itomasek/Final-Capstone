@@ -1,34 +1,43 @@
 <template>
   <div>
+    <h1>Edit Deck Details</h1>
     <form class="edit-deck-form">
-      <h1>Edit Deck Details</h1>
-      <div>
+      <div class="name-div-edit-deck">
         <label for="name">Deck Name: </label>
         <br />
-        <input type="text" name="name" v-model.trim="deck.name" />
+        <input class="name-edit-deck" type="text" name="name" v-model.trim="deck.name" />
       </div>
-      <div>
+      <div class="sub-div-edit-deck">
         <label for="subject">Deck Subject: </label>
         <br />
-        <input type="text" name="subject" v-model.trim="deck.subject" />
+        <input class="subject-edit-deck" type="text" name="subject" v-model.trim="deck.subject" />
       </div>
-      <div>
+      <div class="desc-div-edit-deck">
         <label for="description">Deck Description</label>
         <br />
         <textarea
+          class="desc-edit-deck"
           name="description"
-          cols="30"
+          cols="50"
           rows="10"
           v-model.trim="deck.description"
         ></textarea>
       </div>
-      <button class="edit-deck" type="submit" v-on:click.prevent="saveEdits">
-        Save Changes
-      </button>
-      <br>
-      <button class="edit-deck" v-on:click.prevent="deleteDeck">Delete This Deck</button>
-      <br />
-      <button class="cancel-edit-deck" v-on:click.prevent="cancelForm">Cancel</button>
+      <div class="button-div-edit-deck">
+        <button
+          class="save-button-edit-deck"
+          type="submit"
+          v-on:click.prevent="saveEdits"
+        >
+          Save Changes
+        </button>
+        <button class="delete-button-edit-deck" v-on:click.prevent="deleteDeck">
+          Delete This Deck
+        </button>
+        <button class="cancel-button-edit-deck" v-on:click.prevent="cancelForm">
+          Cancel
+        </button>
+      </div>
     </form>
     <hr />
     <div id="card-container">
@@ -132,11 +141,6 @@ export default {
 </script>
 
 <style scoped>
-.edit-deck-form {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  text-align: center;
-}
 #card-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -166,18 +170,88 @@ export default {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-.edit-deck {
-  margin: 5px auto;
-  width: 150px;
-  background-color: #deebf3;
-  border-radius: 5px;
+
+.edit-deck-form {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    ". name subject ."
+    ". desc desc ."
+    ". button button .";
 }
-.cancel-edit-deck {
-  margin: 5px auto;
-  width: 150px;
-  background-color: #deebf3;
-  border-radius: 5px;
+
+.name-div-edit-deck {
+  grid-area: name;
 }
+
+.name-edit-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+}
+
+.sub-div-edit-deck {
+  grid-area: subject;
+}
+
+.subject-edit-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+}
+
+.desc-div-edit-deck {
+  grid-area: desc;
+  margin-top: 20px;
+}
+
+.desc-edit-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+  resize: none;
+  text-align: center;
+}
+
+.button-div-edit-deck {
+  grid-area: button;
+  display: flex;
+  justify-content: space-around;
+}
+
+.save-button-edit-deck {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin: 10px;
+  margin-left: 100px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.delete-button-edit-deck {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin: 10px;
+  
+  padding: 10px;
+  font-weight: 700;
+}
+
+.cancel-button-edit-deck {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin: 10px;
+  margin-right: 100px;
+  padding: 10px;
+  font-weight: 700;
+}
+
 textarea {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;

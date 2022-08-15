@@ -10,7 +10,7 @@
       >
     </div>
     <h3 id="history">Your Study Session History</h3>
-    
+    <h4 class="username-session">Username: {{this.$store.state.user.username}}</h4>
     <table class="history-table">
       <thead>
         <tr id="headings">
@@ -118,5 +118,11 @@ export default {
     height: 50px;
     margin-top:10px;
     
+  }
+
+  .username-session {
+    text-align: center;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   }
 </style>

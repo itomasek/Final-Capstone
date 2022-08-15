@@ -4,7 +4,7 @@
     <div id="filter-bar">
       <label for="filter-cards">Filter By Tags: </label>
       <br />
-      <input class="filter-bar" type="text" name="filter-cards" v-model="filter" />
+      <input placeholder="Ex: History, Culture, Music" class="filter-bar" type="text" name="filter-cards" v-model="filter" />
     </div>
     <div class="deck-cards-container">
       <deck-card

@@ -14,8 +14,9 @@
         v-model="user.username"
         required
         autofocus
-      /> <br>
-      <label for="password" class="sr-only">Password: </label>
+      />
+      <br />
+      <label for="password" class="sr-only-password">Password: </label>
       <input
         type="password"
         id="password"
@@ -23,7 +24,8 @@
         placeholder="Password"
         v-model="user.password"
         required
-      /> <br>
+      />
+      <br />
       <input
         type="password"
         id="confirmPassword"
@@ -31,17 +33,19 @@
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
-      /> <br>
-
-      <button
-        id="sign-in"
-        class="btn btn-lg btn-primary btn-block"
-        type="submit"
-      >
-        Create Account
-      </button>
-      <h5>Already Have An Account?</h5>
-      <router-link :to="{ name: 'login' }">Sign In!</router-link>
+      />
+      <br />
+      <div class="register-button-container">
+        <button
+          id="sign-in"
+          class="btn btn-lg btn-primary btn-block"
+          type="submit"
+        >
+          Create Account
+        </button>
+        <h5>Already Have An Account?</h5>
+        <router-link :to="{ name: 'login' }">Sign In!</router-link>
+      </div>
     </form>
   </div>
 </template>
@@ -104,23 +108,33 @@ export default {
   flex-direction: column;
   align-content: center;
   text-align: center;
-
-  
 }
 
 #sign-in {
- margin:auto;
+  
   width: 150px;
 }
 
 .form-control {
   width: 30%;
-  
   margin: auto;
-  
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
 }
-.text-center{
-  text-align:center
+.text-center {
+  text-align: center;
 }
 
+.sr-only-password {
+  margin-top: 10px;
+}
+
+.register-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 30%;
+  align-self: center;
+}
 </style>

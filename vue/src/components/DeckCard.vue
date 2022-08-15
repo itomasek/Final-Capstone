@@ -89,8 +89,13 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #8ab4a7;
+  height: 300px;
   width: 300px;
+  background-image: url("../../assets/Question.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+  background-blend-mode: color-burn;
 }
 
 #back {
@@ -106,8 +111,12 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #DBF0E9;
+  
   width: 300px;
+  background-image: url('../../assets/check-mark.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode:multiply;
 }
 
 .subject {

@@ -1,31 +1,35 @@
 <template>
   <div>
+    <h1>New Deck Form</h1>
     <form class="new-deck-form" v-on:submit.prevent>
-      <h1>New Deck Form</h1>
-      <div class="ndform">
+      <div class="name-div-add-deck">
         <label for="name">Deck Name: </label>
         <br />
-        <input type="text" name="name" v-model="deck.name" />
+        <input class="name-add-deck" type="text" name="name" v-model="deck.name" placeholder="Give This Deck A Name!"/>
       </div>
-      <div class="ndform">
+      <div class="subject-div-add-deck">
         <label for="subject">Deck Subject: </label>
         <br />
-        <input type="text" name="subject" v-model="deck.subject" />
+        <input class="subject-add-deck" type="text" name="subject" v-model="deck.subject" placeholder="What Is This Deck About?"/>
       </div>
-      <div class="ndform">
+      <div class="desc-div-add-deck">
         <label for="description">Deck Description</label>
         <br />
         <textarea
+          placeholder="Give This Deck A Description!"
+          class="desc-add-deck"
           name="description"
-          cols="30"
+          cols="50"
           rows="10"
           v-model="deck.description"
         ></textarea>
       </div>
-      <button class="ndbutton" type="submit" v-on:click.prevent="saveDeck">
-        Save New Deck
-      </button>
-      <button class="ndbutton" v-on:click="cancelForm">Cancel</button>
+      <div class="add-deck-buttons">
+        <button class="save-add-deck" type="submit" v-on:click.prevent="saveDeck">
+          Save New Deck
+        </button>
+        <button class="cancel-add-deck" v-on:click="cancelForm">Cancel</button>
+      </div>
     </form>
     <hr />
     <deck-card-list />
@@ -92,24 +96,80 @@ export default {
 
 <style>
 .new-deck-form {
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   text-align: center;
-  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: 
+            ". name subject ."
+            ". desc desc ."
+            ". button button .";
 }
-.ndform {
-  margin: auto;
+
+.name-div-add-deck {
+  grid-area: name;
+}
+
+.name-add-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+}
+
+.subject-div-add-deck {
+  grid-area: subject;
+}
+
+.subject-add-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+}
+
+.desc-add-deck {
+  padding: 10px 50px 10px 50px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
+  resize: none;
   text-align: center;
+}
+
+.desc-div-add-deck {
+  grid-area: desc;
+  margin-top: 20px;
+}
+
+.add-deck-buttons {
+  grid-area: button;
+  display: flex;
+  justify-content: space-around;
+}
+
+.save-add-deck {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin: 10px;
+  margin-left: 300px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+.cancel-add-deck {
+  border-radius: 10px;
+  width: 125px;
+  height: 50px;
+  margin: 10px;
+  margin-right: 300px;
+  padding: 10px;
+  font-weight: 700;
 }
 
 .ndbutton {
   width: 150px;
-  margin:5px auto;
-  
+  margin: 5px auto;
+
   border-radius: 5px;
 }
 </style>

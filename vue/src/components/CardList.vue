@@ -6,6 +6,7 @@
       <label for="filter-cards">Search By Tags: </label>
       <br />
       <input
+        placeholder="Ex: History, Culture, Music"
         class="filter-bar"
         type="text"
         name="filter-cards"
@@ -80,7 +81,6 @@ h1 {
   margin: auto;
   text-align: center;
   font-size: 50px;
-  
 }
 .filter-bar {
   padding: 10px 50px 10px 50px;

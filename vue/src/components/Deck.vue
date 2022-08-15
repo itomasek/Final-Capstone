@@ -76,9 +76,14 @@ export default {
   padding: 50px;
   margin: 50px;
   border-radius: 30px;
-  background-color: #c9e3da;
+  
   width: 400px;
   height: 300px;
+  background-image: url("../../assets/Question.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-weight: bold;
+  background-blend-mode: color-burn;
 }
 
 .deck-name {
