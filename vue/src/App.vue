@@ -22,14 +22,13 @@ export default {
 </script>
 
 <style>
-/*  #app{
-  background-image: url("../assets/paper.png");
+ #app{
+  background-image: url("../assets/new-notebook.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #000;
-  color: #fff;
   font-weight: bold;
-  }  */ 
+  }  
 </style>
 
 

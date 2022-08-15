@@ -84,6 +84,10 @@ export default {
 </script>
 
 <style>
+h1{
+  color: black;
+  font-weight:bolder;
+}
 .new-card-form {
   
   display: flex;
@@ -91,6 +95,7 @@ export default {
   align-content: center;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
+  
 }
 
 .ncbutton {
@@ -101,4 +106,5 @@ export default {
   border-radius: 5px;
 
 }
+
 </style>

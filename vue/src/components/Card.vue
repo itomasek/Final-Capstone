@@ -69,6 +69,12 @@ export default {
   background-color: #8ab4a7;
   width: 400px;
   height: 300px;
+ /*  background-image: url("../../assets/card-background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #000; */
+  font-weight: bold;
+  
 }
 
 #back {
