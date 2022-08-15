@@ -35,6 +35,9 @@
         </tr>
       </tbody>
     </table>
+    <div class="clear-container">
+     <button id="clearbutton" v-on:click="clearSession">Clear Session History</button>
+     </div>
   </div>
 </template>
 
@@ -52,6 +55,17 @@ export default {
       this.sessions = response.data;
     });
   },
+  updated(){
+    CardService.getSessions(this.$store.state.user.id).then((response) => {
+      this.sessions = response.data;
+    });
+  },
+  methods:{
+    clearSession(){
+      CardService.clearSessions(this.$store.state.user.id);
+
+    }
+  }
 };
 </script>
 
@@ -59,6 +73,7 @@ export default {
 .entire-page{
   width: 100vw;
   height: 100vh;
+  
 }
     
   #history{
@@ -90,5 +105,18 @@ export default {
     width: 150px;
     height: 50px;
     margin-top:10px;
+  }
+  .clear-container{
+    display: flex;
+    justify-content:center;
+    margin-top: 10px;
+  }
+  #clearbutton{
+    text-align:center;
+    border-radius: 10px;
+    width: 150px;
+    height: 50px;
+    margin-top:10px;
+    
   }
 </style>

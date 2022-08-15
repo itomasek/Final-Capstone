@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="main-container">
-      <h1>Welcome to Flashdex!</h1>
+      <h1>Welcome to <em> FLASHDEX</em>!</h1>
       <h3>Improving your brain one flashcard at a time!</h3>
       <p>
         Check out these example cards! The answers can be viewed by pressing
