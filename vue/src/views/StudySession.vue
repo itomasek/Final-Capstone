@@ -66,6 +66,7 @@ export default {
     };
   },
   created() {
+    this.$store.commit('TOGGLE_SESSION');
     if (this.$store.state.token == "") {
       this.studyCards = this.$store.state.exampleCards;
     } else {

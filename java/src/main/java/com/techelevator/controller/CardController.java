@@ -71,8 +71,8 @@ public class CardController {
     }
 
     @RequestMapping(path = "/clear-card-deck/{deckId}", method = RequestMethod.DELETE)
-    public int clearCardDeck(@PathVariable int deckId) {
-        return cardDao.clearCardDeck(deckId);
+    public void clearCardDeck(@PathVariable int deckId) {
+        cardDao.clearCardDeck(deckId);
     }
 
     @RequestMapping(path = "/save-session", method = RequestMethod.POST)
@@ -83,6 +83,26 @@ public class CardController {
     @RequestMapping(path = "/my-sessions/{userId}", method = RequestMethod.GET)
     public List<UserSession> getSessions(@PathVariable int userId) {
         return cardDao.getSessions(userId);
+    }
+
+    @RequestMapping(path = "/delete-cards/{cardId}", method = RequestMethod.DELETE)
+    public void deleteCardsFromDeck(@PathVariable int cardId) {
+        cardDao.deleteCardsFromDeck(cardId);
+    }
+
+    @RequestMapping(path = "/delete-card/{cardId}", method = RequestMethod.DELETE)
+    public void deleteCard(@PathVariable int cardId) {
+        cardDao.deleteCard(cardId);
+    }
+
+    @RequestMapping(path = "/delete-deck/{deckId}", method = RequestMethod.DELETE)
+    public void deleteDeck(@PathVariable int deckId) {
+        cardDao.deleteDeck(deckId);
+    }
+
+    @RequestMapping(path = "/clear-sessions/{userId}", method = RequestMethod.DELETE)
+    public void clearSessions(@PathVariable int userId) {
+        cardDao.clearSessions(userId);
     }
 
 }

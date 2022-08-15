@@ -43,6 +43,18 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
+    public void deleteCardsFromDeck(int cardId) {
+        String sql = "DELETE FROM card_deck WHERE card_id = ?";
+        jdbcTemplate.update(sql, cardId);
+    }
+
+    @Override
+    public void deleteCard(int cardId) {
+        String sql = "DELETE FROM card WHERE card_id = ?";
+        jdbcTemplate.update(sql, cardId);
+    }
+
+    @Override
     public Card getCardById(int cardId) {
         return null;
     }
@@ -132,13 +144,21 @@ public class JdbcCardDao implements CardDao{
     }
 
     @Override
-    public int clearCardDeck(int deckId) {
+    public void clearCardDeck(int deckId) {
         String sql = "DELETE FROM card_deck WHERE deck_id = ?";
         jdbcTemplate.update(sql, deckId);
-        return 0;
     }
 
+    @Override
+    public void deleteDeck(int deckId) {
+        String sql = "DELETE FROM deck WHERE deck_id = ?";
+        jdbcTemplate.update(sql, deckId);
+    }
 
+    public void clearSessions(int userId) {
+        String sql = "DELETE FROM user_session WHERE user_id = ?";
+        jdbcTemplate.update(sql, userId);
+    }
 
 
 

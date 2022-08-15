@@ -1,7 +1,8 @@
 <template>
   <div>
     <h1 class="title">Current Cards:</h1>
-    <div id="filter-bar">
+    <p v-if="cards.length == 0">You Don't Have Any Cards Yet!</p>
+    <div id="filter-bar" v-else>
       <label for="filter-cards">Search By Tags: </label>
       <br />
       <input

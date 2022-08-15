@@ -22,11 +22,13 @@
           v-model.trim="deck.description"
         ></textarea>
       </div>
-      <button class="edit-deck" id="edbutton" type="submit" v-on:click.prevent="saveEdits">
+      <button class="edit-deck" type="submit" v-on:click.prevent="saveEdits">
         Save Changes
       </button>
       <br>
-      <button class="cancel-edit-deck" id="edbutton" v-on:click="cancelForm">Cancel</button>
+      <button class="edit-deck" v-on:click.prevent="deleteDeck">Delete This Deck</button>
+      <br />
+      <button class="cancel-edit-deck" v-on:click.prevent="cancelForm">Cancel</button>
     </form>
     <hr />
     <div id="card-container">
@@ -38,6 +40,7 @@
           v-bind:card="card"
         />
       </div>
+
       <div id="cards-not-in-deck">
         <h3>Cards Not Currently In This Deck:</h3>
         <deck-card
@@ -102,6 +105,14 @@ export default {
         params: { user_id: this.deck.userId },
       });
     },
+    deleteDeck() {
+      CardService.clearCardDeck(this.deck.deckId);
+      CardService.deleteDeck(this.deck.deckId);
+      this.$router.push({
+        name: "my-decks",
+        params: { user_id: this.deck.userId },
+      });
+    },
   },
   created() {
     this.deck = this.$store.state.activeEditDeck;
@@ -109,26 +120,29 @@ export default {
       this.inCards = response.data;
       this.inCards.forEach((card) => {
         this.$store.commit("ADD_CARD_ID", card.cardId);
-        console.log(this.inCards.length);
       });
     });
-    CardService.getExcludedCards(this.deck.userId, this.deck.deckId).then((response) => {
-      this.outCards = response.data;
-    });
+    CardService.getExcludedCards(this.deck.userId, this.deck.deckId).then(
+      (response) => {
+        this.outCards = response.data;
+      }
+    );
   },
 };
 </script>
 
 <style scoped>
-.edit-deck-form{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.edit-deck-form {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   text-align: center;
 }
 #card-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "in out";
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 #cards-in-deck {
@@ -139,30 +153,33 @@ export default {
   align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+  border-right: solid black 2px;
 }
 
 #cards-not-in-deck {
   grid-area: out;
   display: flex;
+
   flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-.edit-deck{
+.edit-deck {
   margin: 5px auto;
   width: 150px;
   background-color: #deebf3;
   border-radius: 5px;
 }
-.cancel-edit-deck{
+.cancel-edit-deck {
   margin: 5px auto;
   width: 150px;
   background-color: #deebf3;
   border-radius: 5px;
 }
-textarea{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+textarea {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 </style>

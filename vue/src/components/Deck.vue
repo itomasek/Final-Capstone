@@ -38,6 +38,11 @@ export default {
       this.numberOfCards = response.data;
     });
   },
+  updated() {
+    CardService.getNumberOfCards(this.deck.deckId).then((response) => {
+      this.numberOfCards = response.data;
+    });
+  },
   methods: {
     editDeck() {
       this.$store.commit("SET_EDIT_DECK", this.deck);
@@ -49,7 +54,7 @@ export default {
     goStudy() {
       this.$store.commit('SET_ACTIVE_DECK', this.deck.deckId);
       this.$store.commit('SET_ACTIVE_DECK_NAME', this.deck.name);
-      this.$store.commit('TOGGLE_SESSION');
+      
       this.$router.push({name: 'study-session'});
     }
   },

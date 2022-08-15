@@ -50,5 +50,21 @@ export default {
 
     getSessions(userId) {
         return axios.get(`/my-sessions/${userId}`);
+    },
+
+    deleteCardsFromDeck(cardId) {
+        return axios.delete(`/delete-cards/${cardId}`);
+    },
+
+    deleteCard(cardId) {
+        return axios.delete(`/delete-card/${cardId}`);
+    },
+
+    deleteDeck(deckId) {
+        return axios.delete(`/delete-deck/${deckId}`);
+    },
+
+    clearSessions(userId) {
+        return axios.delete(`/clear-sessions/${userId}`);
     }
 }

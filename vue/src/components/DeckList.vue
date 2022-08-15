@@ -22,17 +22,18 @@ export default {
   data() {
     return {
       decks: [],
-      exampleDecks: [],
     };
   },
   created() {
     CardService.listDecks(this.$store.state.user.id).then((response) => {
       this.decks = response.data;
     });
-    CardService.listDecks(2).then((response) => {
-      this.exampleDecks = response.data;
-    });
   },
+  updated() {
+    CardService.listDecks(this.$store.state.user.id).then((response) => {
+      this.decks = response.data;
+    });
+  }
 };
 </script>
 

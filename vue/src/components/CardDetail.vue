@@ -10,7 +10,7 @@
       <div>
         <label for="question">Card Question: </label>
         <br />
-        <textarea 
+        <textarea
           name="question"
           cols="30"
           rows="10"
@@ -32,8 +32,10 @@
           v-model.trim="card.answer"
         ></textarea>
       </div>
-      <button class="editcard" v-on:click.prevent="saveEdit">Save Your Changes</button>
-      
+      <button class="editcard" v-on:click.prevent="saveEdit">
+        Save Your Changes
+      </button>
+      <button class="editcard" v-on:click="deleteCard">Delete This Card</button>
       <button class="editcard" v-on:click="cancelEdit">Cancel</button>
     </form>
   </div>
@@ -73,22 +75,32 @@ export default {
         params: { user_id: this.card.userId },
       });
     },
+    deleteCard() {
+      CardService.deleteCardsFromDeck(this.card.cardId);
+      CardService.deleteCard(this.card.cardId);
+      this.$router.push({
+        name: "my-cards",
+        params: { user_id: this.card.userId },
+      });
+    },
   },
 };
 </script>
 
 <style>
 .h1 {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .editcard {
   margin: 5px auto;
   width: 150px;
-  
+
   border-radius: 5px;
 }
-textarea{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+textarea {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 </style>

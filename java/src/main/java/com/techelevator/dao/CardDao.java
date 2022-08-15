@@ -28,11 +28,19 @@ public interface CardDao {
 
     List<Card> getExcludedCards(int userId, int deckId);
 
-    int clearCardDeck(int deckId);
+    void clearCardDeck(int deckId);
 
     int updateDeck(int deckId, Deck deck);
 
     int saveSession(UserSession session);
 
     List<UserSession> getSessions(int userId);
+
+    void deleteCardsFromDeck(int cardId);
+
+    void deleteCard(int cardId);
+
+    void deleteDeck(int deckId);
+
+    void clearSessions(int userId);
 }
