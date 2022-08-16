@@ -74,6 +74,7 @@ export default {
   background-size: cover;
   font-weight: bold;
   background-blend-mode: color-burn;
+  box-shadow: 5px 5px 5px #c7e1f1;
  
 }
 
@@ -97,6 +98,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode:multiply;
+  box-shadow: 5px 5px 5px #c7e1f1;
 }
 
 .subject {

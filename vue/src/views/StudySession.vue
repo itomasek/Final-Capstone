@@ -179,10 +179,13 @@ export default {
 
 .correct-count {
   color: green;
+  
 }
 
 .incorrect-count {
   color: red;
+  
+  
 }
 
 .complete-buttons {
@@ -192,5 +195,8 @@ export default {
 
 .session-headline {
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  
 }
 </style>

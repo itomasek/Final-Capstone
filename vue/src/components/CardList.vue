@@ -85,5 +85,6 @@ h1 {
 .filter-bar {
   padding: 10px 50px 10px 50px;
   border-radius: 5px;
+  box-shadow: 5px 5px 5px #c7e1f1;
 }
 </style>

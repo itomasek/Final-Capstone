@@ -12,16 +12,18 @@
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi
-            laudantium aperiam unde recusandae vitae perferendis ad sed?
-            Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa
-            similique qui illum corporis.Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-            perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa
-            rerum nisi ipsa similique qui illum corporis.Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. A nisi laudantium aperiam unde
-            recusandae vitae perferendis ad sed? Pariatur reiciendis consectetur
-            veritatis culpa rerum nisi ipsa similique qui illum corporis.
+            I am beyond excited to have recently taken a new position as an
+            Associate Software Engineer with KeyBank after graduating from the
+            Tech Elevator Java Bootcamp in August 2022. My educational
+            background is in music (BM Voice Performance from Florida State
+            University, MM Music Composition from Cleveland State University),
+            and I am continually fascinated by the creative connection between
+            reading and writing code and reading and writing music. In my spare
+            time I enjoy playing the piano, sampling local nightlife and
+            restaurants, and keeping up on the latest opera gossip. As a
+            Cleveland, Ohio native I also enjoy pretending to be devoted to the
+            Browns, which is a wonderful exercise in humility. Thank you for
+            checking out <em>FLASHDEX</em>!
           </p>
         </div>
       </div>
@@ -35,16 +37,16 @@
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi
-            laudantium aperiam unde recusandae vitae perferendis ad sed?
-            Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa
-            similique qui illum corporis.Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-            perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa
-            rerum nisi ipsa similique qui illum corporis.Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. A nisi laudantium aperiam unde
-            recusandae vitae perferendis ad sed? Pariatur reiciendis consectetur
-            veritatis culpa rerum nisi ipsa similique qui illum corporis.
+            Diehard Yankees fan, married and have a four years old son. After
+            working 20 years in few different Operations roles with KeyBank
+            within various departments and my most recent role as ACH Lead
+            Specialist. Got accepted in a new role as Software Engineering.
+            After graduating from Tech Elevator Bootcamp will be joining new
+            position with KeyBank. In my spare time, love to spend time with my
+            family, specially with my son. Taking him out to parks, bouncing
+            bounce, fairs and kids rides. I enjoy watching football and baseball
+            games just to have father and son time together. Hoping that he will
+            become a "Yankees fan".
           </p>
         </div>
       </div>
@@ -84,16 +86,17 @@
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A nisi
-            laudantium aperiam unde recusandae vitae perferendis ad sed?
-            Pariatur reiciendis consectetur veritatis culpa rerum nisi ipsa
-            similique qui illum corporis.Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. A nisi laudantium aperiam unde recusandae vitae
-            perferendis ad sed? Pariatur reiciendis consectetur veritatis culpa
-            rerum nisi ipsa similique qui illum corporis.Lorem ipsum dolor sit
-            amet consectetur adipisicing elit. A nisi laudantium aperiam unde
-            recusandae vitae perferendis ad sed? Pariatur reiciendis consectetur
-            veritatis culpa rerum nisi ipsa similique qui illum corporis.
+            After 14 weeks of an intense, complicated, but lifechanging boot
+            camp with Tech Elevator, I'm happy to announce that I have taken a
+            position as an Associate Software Engineer for KeyBank! The time
+            spent learning and working with code from Tech Elevator has taught
+            me to be more patient and kind to myself because a lot of it has to
+            do with trial and error, especially when starting out so fresh. My
+            educational background is in Criminal Justice - I know, a far jump
+            from software development. It's definitely still my passion, but I
+            love the challenge of software development! When I'm not working,
+            I'm relaxing with my dogs, working on my side business, or baking
+            some cookies.
           </p>
         </div>
       </div>
@@ -160,5 +163,9 @@ div.name:nth-child(1) > div.description {
 }
 .description > p {
   text-align: left;
+}
+
+div.description > p {
+   text-indent: 35px;
 }
 </style>

@@ -29,6 +29,10 @@ export default {
   background-color: #000;
   font-weight: bold;
   }  
+
+  button {
+    cursor: pointer;
+  }
 </style>
 
 
